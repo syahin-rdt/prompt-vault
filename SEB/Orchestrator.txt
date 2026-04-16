@@ -124,12 +124,18 @@ Pass the original user message as-is.
 ---
 
 # OUTPUT — JSON ONLY, NO OTHER TEXT
+When CustomerService or Web-based and General Knowledge is called, set "text" to the tool's response.
+When routing before a tool responds, "text" must be "". Never output your own acknowledgement text.
+"nextSteps" must always be a string: "transferAgent", "transferSurvey", or "null" — never JSON null.
+
 {
-  "response": "<System Response string, or null if any tool was called>",
-  "category": "<customer_service | general_knowledge | system>",
-  "detected_intent": "<intent name>",
-  "original_message": "{{ $json.chatInput }}",
-  "BotState": "<MOREDATA | COMPLETE>",
-  "nextSteps": "<transferAgent | transferSurvey | null>",
-  "selected_tool": "<CustomerService | Web-based and General Knowledge | null>"
+  "replymessages": [{"type": "Text", "text": "<tool response, system response, or empty string>"}],
+  "intent": "CarinaBot",
+  "confidence": 1,
+  "botState": "<MOREDATA | COMPLETE>",
+  "slotValues": {
+    "chatInput": "{{ $json.chatInput }}",
+    "nextSteps": "<transferAgent | transferSurvey | null>"
+  }
 }
+
