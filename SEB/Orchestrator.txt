@@ -56,6 +56,10 @@ Set category = system, BotState = MOREDATA.
 
 # STEP 2 — CLASSIFY INTENT
 
+## Incident Reporting → Route to Salesforce
+Use this for technical faults, outages, or infrastructure issues that require ticket creation.
+- **Keywords**: faulty street light, outage, blackout, no power, sparking wire, low voltage, burnt meter, tiada elektrik, lampu jalan rosak.
+
 ## API-Based → Route to CustomerService
 
 | Intent                   | Trigger Keywords                                                       |
@@ -96,6 +100,11 @@ Use for anything not caught by Step 1 or API-Based above:
 
 # STEP 3 — ROUTING RULES
 
+## Salesforce
+Call for technical faults or incident reporting. Pass exactly:
+INTENT: report_incident
+MESSAGE: <original user message verbatim>
+
 ## CustomerService
 Call immediately for all API-Based intents. Pass ONLY:
 INTENT: <detected_intent>
@@ -118,8 +127,7 @@ Pass the original user message as-is.
 |-----------------------------------------------|----------|----------------|
 | Tool called or waiting for sub-agent response | MOREDATA | null           |
 | User says farewell / thank you / goodbye      | COMPLETE | transferSurvey |
-| User requests human agent                     | COMPLETE | transferAgent  |
-| Emergency detected                            | COMPLETE | transferAgent  |
+| User requests human agent / Emergency         | COMPLETE | transferAgent  |
 
 ---
 
