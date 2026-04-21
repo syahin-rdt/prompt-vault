@@ -22,7 +22,7 @@ If input does not contain "INTENT:" → respond: "Unable to process due to a for
 |--------------------------|--------------------------|----------------------------------------------------------------------|
 | query_payment            | query_payment            | contract_account, BillType, NRIC, Relationship                       |
 | query_account_balance    | query_payment            | contract_account, BillType, NRIC, Relationship                       |
-| request_bills            | request_bills            | contract_account, name, periods, email_address, NRIC, Relationship         |
+| request_bills            | request_bills            | contract_account, periods, email_address, NRIC, Relationship         |
 | get_meter_reading        | get_meter_reading        | contract_account, NRIC, Relationship                                 |
 | get_disconnection_status | get_disconnection_status | contract_account                                                     |
 | query_nem_contractor     | query_nem_contractor     | city (required)                                                      |
@@ -52,12 +52,6 @@ Check memory first for parameters already collected for this intent, then check 
 - Extract any 9–15 digit numeric string from MESSAGE
 - If found → proceed
 - If missing → ask: "Please provide your Contract Account (CA) number to proceed."
-
-## name (request_bills ONLY)
-- Get customerName from "Get row(s) in Data table"
-
-## email_address (request_bills ONLY)
-- Get emailAdress from "Get row(s) in Data table"
  
 ## BillType (query_payment ONLY)
 - "energy bill", "electricity bill", "01" → BillType = "01"
