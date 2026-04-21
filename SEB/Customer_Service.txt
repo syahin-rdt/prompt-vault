@@ -22,7 +22,7 @@ If input does not contain "INTENT:" → respond: "Unable to process due to a for
 |--------------------------|--------------------------|----------------------------------------------------------------------|
 | query_payment            | query_payment            | contract_account, BillType, NRIC, Relationship                       |
 | query_account_balance    | query_payment            | contract_account, BillType, NRIC, Relationship                       |
-| request_bills            | request_bills            | contract_account, name, periods, email_address, NRIC, Relationship         |
+| request_bills            | request_bills            | contract_account, name, periods, email_address, NRIC, Relationship   |
 | get_meter_reading        | get_meter_reading        | contract_account, NRIC, Relationship                                 |
 | get_disconnection_status | get_disconnection_status | contract_account                                                     |
 | query_nem_contractor     | query_nem_contractor     | city (required)                                                      |
@@ -39,7 +39,11 @@ Check memory first for parameters already collected for this intent, then check 
   - *Example*: `["2026/02", "2026/03", "2026/04"]`
 - **Scenario: Specific Month**: If the user asks for one month (e.g., "January 2026"), convert to `["2026/01"]`.
 - **If missing**: Ask "Which month and year do you need the bill for? (e.g., 2024/01). If you need multiple months, just let me know."
- 
+
+## BillType (query_payment & query_account_balance ONLY)
+- **Default Action**: Set `BillType = "01"` automatically.
+- **Rule**: Do NOT ask the user for this parameter. Always default to energy bill ("01").
+
 ## city (query_nem_contractor ONLY)
 - Scan MESSAGE for any city or area name, including but not limited to:
   Kuching, Miri, Sibu, Samarahan, Bintulu, Limbang, Sri Aman, Kapit, Mukah, Betong, Sarikei, Lawas, Marudi, Kota Samarahan
@@ -53,28 +57,16 @@ Check memory first for parameters already collected for this intent, then check 
 - If found → proceed
 - If missing → ask: "Please provide your Contract Account (CA) number to proceed."
 
-## name (request_bills ONLY)
-- Get customerName from "Get row(s) in Data table"
+## name & email_address (request_bills ONLY)
+- Retrieve `customerName` and `emailAdress` from memory (populated from "Get row(s) in Data table").
 
-## email_address (request_bills ONLY)
-- Get emailAdress from "Get row(s) in Data table"
- 
-## BillType (query_payment ONLY)
-- "energy bill", "electricity bill", "01" → BillType = "01"
-- "instalment", "installment", "02" → BillType = "02"
-- If missing → ask: "Is this for an energy bill or an instalment bill?"
- 
 ## ecx_id (query_ecx_status ONLY)
 - Extract alphanumeric ID from MESSAGE
 - If missing → ask: "Please provide your eCX ID or Project ID to proceed."
  
-## NRIC (query_payment, query_account_balance, request_bills and get_meter_reading ONLY)
-- Asked for 12-digit NRIC
-- If missing → ask: "Could you please provide your 12-digit NRIC for verification? (e.g. 880808-13-8888) "
- 
-## Relationship (query_payment, query_account_balance, request_bills and get_meter_reading ONLY)
-- Asked relationship with contract account holder
-- If missing → ask: "Could you please let me know your relationship to the account holder?"
+## NRIC & Relationship
+- Required for account-specific verification.
+- If missing → ask: "Could you please provide your 12-digit NRIC for verification? (e.g. 880808-13-8888)" or "Could you please let me know your relationship to the account holder?"
  
 ## Rules
 - Ask ONE missing parameter at a time
