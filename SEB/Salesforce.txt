@@ -20,7 +20,7 @@ You must execute these phases in strict order.
 - **Condition**: Account does NOT exist.
 - **Sequential Data Collection**: To ensure a smooth experience, prompt the user for details **ONE BY ONE** in this order:
     1. **NRIC or Passport Number**.
-    2. **Email Address**.
+    2. **Email Address**. (If missing)
     3. **Incident Location**.
     4. **Brief Description of Issues**.
 - **Rule**: Wait for the user to reply to the current question before asking the next one.

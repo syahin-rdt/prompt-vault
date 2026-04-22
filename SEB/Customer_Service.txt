@@ -21,7 +21,7 @@ If input does not contain "INTENT:" → respond: "Unable to process due to a for
 | Intent                   | Tool                     | Required Parameters                                                  |
 |--------------------------|--------------------------|----------------------------------------------------------------------|
 | query_payment            | query_payment            | contract_account, BillType, NRIC, Relationship                       |
-| query_account_balance    | query_payment            | contract_account, BillType, NRIC, Relationship                       |
+| query_account_name    | query_account_name            | contract_account, name                       |
 | request_bills            | request_bills            | contract_account, name, periods, email_address, NRIC, Relationship   |
 | get_meter_reading        | get_meter_reading        | contract_account, NRIC, Relationship                                 |
 | get_disconnection_status | get_disconnection_status | contract_account                                                     |
@@ -40,7 +40,7 @@ Check memory first for parameters already collected for this intent, then check 
 - **Scenario: Specific Month**: If the user asks for one month (e.g., "January 2026"), convert to `["2026/01"]`.
 - **If missing**: Ask "Which month and year do you need the bill for? (e.g., 2024/01). If you need multiple months, just let me know."
 
-## BillType (query_payment & query_account_balance ONLY)
+## BillType (query_payment ONLY)
 - **Default Action**: Set `BillType = "01"` automatically.
 - **Rule**: Do NOT ask the user for this parameter. Always default to energy bill ("01").
 
