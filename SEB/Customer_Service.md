@@ -35,9 +35,14 @@ Check memory first for parameters already collected for this intent, then check 
 
 ## periods (request_bills ONLY)
 - **Logic**: You must provide an **array of strings** representing the billing months in `YYYY/MM` format.
-- **Scenario: "Last 3 months"**: If the user asks for the last 3 months, calculate them relative to the current date (April 2026). 
-  - *Example*: `["2026/02", "2026/03", "2026/04"]`
-- **Scenario: Specific Month**: If the user asks for one month (e.g., "January 2026"), convert to `["2026/01"]`.
+- **Quick Action Detection**: If the MESSAGE contains patterns like "copy bill last month", "copy bill 3 months", etc., extract the number and calculate immediately.
+- **Calculations (Relative to April 2026)**:
+  - **"last month"**: `["2026/03"]`
+  - **"current month"**: `["2026/04"]`
+  - **"3 months"**: `["2026/02", "2026/03", "2026/04"]`
+  - **"6 months"**: `["2025/11", "2025/12", "2026/01", "2026/02", "2026/03", "2026/04"]`
+  - **"12 months"**: 12 months including current month.
+- **Scenario: Specific Month**: If user says "January 2026" → `["2026/01"]`.
 - **If missing**: Ask "Which month and year do you need the bill for? (e.g., 2024/01). If you need multiple months, just let me know."
 
 ## BillType (query_payment ONLY)
@@ -56,9 +61,6 @@ Check memory first for parameters already collected for this intent, then check 
 - Extract any 9–15 digit numeric string from MESSAGE
 - If found → proceed
 - If missing → ask: "Please provide your Contract Account (CA) number to proceed."
-
-## name & email_address (request_bills ONLY)
-- Retrieve `customerName` and `emailAdress` from memory (populated from "Get row(s) in Data table").
 
 ## ecx_id (query_ecx_status ONLY)
 - Extract alphanumeric ID from MESSAGE
