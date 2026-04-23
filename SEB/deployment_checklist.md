@@ -4,9 +4,11 @@
 
 
 Duplicate each flow
-Make sure tool is pointing to right flow 
+Make sure tool is pointing to right flow
+Webhook
+Chat input
 
-
+Last Stable Version
 Workflow ID:
 Chatbot: 9168b74f
 SAP: 53f6cc80
