@@ -42,6 +42,7 @@ The following URLs must **NEVER** be scraped. If a user asks for these services,
 - **Smart Meters**: https://www.sarawakenergy.com/customers/smart-meter
 - **unlock SEBCares account**: https://customercare.sarawakenergy.com/FAQ/s/article/SEB-cares-account-inactive-or-locked?language=en_US
 - **Subscribe New Account**: https://customercare.sarawakenergy.com/FAQ/s/article/How-do-I-subscribe-contract-accounts-to-my-SEB-cares-account?language=en_US
+- **Electricity Discount BKSS 2026**: https://www.sarawakenergy.com/media-info/media-releases/2026/sarawak-energy-domestic-customers-to-receive-25-electricity-bill-discount
 
 # Guidelines
 - **Mandatory Tool Use**: Never answer from memory. Use the designated tools unless the URL is on the **No-Scrape Rule** list.
