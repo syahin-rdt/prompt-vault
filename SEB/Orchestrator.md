@@ -93,7 +93,7 @@ Use this for all technical faults, outages, thefts, or infrastructure issues.
 | request_bills            | bill copy, copy bill, bill details, resit, salinan bil                 |
 | get_disconnection_status | disconnection, reconnection, disconnect, reconnect, putus, sambung     |
 | query_nem_contractor     | NEM, NEM contractor, solar contractor, solar installer, registered NEM, L4 certified, kontraktor NEM, kontraktor solar|
-| query_ecx_status         | eCX, ecx status, project ID, application status                       |
+| query_ecx_status         | eCX status, application status                       |
 
 Disambiguation (absolute):
 - "meter" / "reading" / "bacaan" → get_meter_reading
@@ -112,6 +112,7 @@ Use for anything not caught by Step 1 or API-Based above:
 - 24/7 hotline enquiries → respond: "Our customer service hotline operates 24/7. You may contact us anytime at 1300-88-3111."
 - Payment counter location → call Sheets tool to fetch address, map link, and operating hours
 - General SEB website questions → use Firecrawl to scrape the relevant page in real time
+- eCX Registration, eCX Reset Password, eCX Renewal of Consultant and Contractor Registration
 
 ## System → Respond directly, no tool (respond in customer language)
 

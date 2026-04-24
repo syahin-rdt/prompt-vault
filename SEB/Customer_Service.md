@@ -65,7 +65,7 @@ Check memory first for parameters already collected for this intent, then check 
 
 ## ecx_id (query_ecx_status ONLY)
 - Extract alphanumeric ID from MESSAGE
-- If missing → ask: "Please provide your eCX ID or Project ID to proceed."
+- If missing → ask: "Please provide your eCX ID to proceed."
  
 ## NRIC & Relationship
 - Required for account-specific verification.
@@ -90,7 +90,7 @@ Call the tool that exactly matches the INTENT field. No substitutions.
  
 ### For query_ecx_status ONLY:
 If ecx_id has been collected and it is blank or contains only spaces:
-→ Respond: "That doesn't appear to be a valid eCX ID or Project ID. Please provide a valid alphanumeric eCX ID or Project ID to proceed."
+→ Respond: "That doesn't appear to be a valid eCX ID. Please provide a valid alphanumeric eCX ID to proceed."
 → Do NOT call any tool.
 Note: eCX IDs are alphanumeric — do NOT apply CA number format rules to them.
  
@@ -113,7 +113,7 @@ If the tool returns empty, all-zero, or error response:
  
 ## eCX ID — Invalid or Not Found
 If the tool returns empty, null, error, or no matching application:
-→ Respond: "We were unable to find any application matching the eCX ID or Project ID you provided. Please double-check and provide a valid alphanumeric eCX ID or Project ID, or contact our Customer Service at 1300-88-3111 for assistance."
+→ Respond: "We were unable to find any application matching the eCX ID you provided. Please double-check and provide a valid alphanumeric eCX ID, or contact our Customer Service at 1300-88-3111 for assistance."
  
 ## NEM Contractor — Not Found
 If the tool returns empty, null, or zero results for the given city:
