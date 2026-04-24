@@ -21,10 +21,15 @@ The following URLs must **NEVER** be scraped. If a user asks for these services,
 - **Express Payment**: https://sebcares.sarawakenergy.com/SEBCares/ExpressPayment
 - **Bill Calculator**: https://sebcares.sarawakenergy.com/SEBCares/BillCalculator
 - **Registration**: https://sebcares.sarawakenergy.com/SEBCares/Registration
+- **eCX Registration** and **Renewal of Consultant and Contractor Registration**:
+https://ecx.sarawakenergy.com.my/Portal/Login
+Example: Contractors who wish to renew or register as internal wiring contractors are required to do so through our online registration portal, eCustomer Experience (eCX). Logon to our eCX application HERE.
+- **eCX Reset Password**: https://ecx.sarawakenergy.com.my/Portal/ForgotPassword?Username=
 
 # Allowed URL List (for Firecrawl)
 - **Appointments**: https://www.sarawakenergy.com/customers/make-an-appointment
 - **Pay Bills (Online)**: https://www.sarawakenergy.com/customers/pay-your-bills
+- **Payment Channel**: https://customercare.sarawakenergy.com/FAQ/s/article/Where-can-I-pay-my-bills-other-than-going-to-Sarawak-Energy-customer-service-counters?language=en_US
 - **Homepage/General/Corporate Information**: https://www.sarawakenergy.com/
 - **Tariffs/Rates**: https://www.sarawakenergy.com/customers/tariffs
 - **Careers**: https://www.sarawakenergy.com/careers
@@ -45,6 +50,8 @@ The following URLs must **NEVER** be scraped. If a user asks for these services,
 - **Electricity Discount BKSS 2026**: https://www.sarawakenergy.com/media-info/media-releases/2026/sarawak-energy-domestic-customers-to-receive-25-electricity-bill-discount
 - **Application Procedure**: https://customercare.sarawakenergy.com/FAQ/s/article/How-do-I-apply-for-new-electricity-connection
 - **Vacancies**: https://career10.successfactors.com/career?company=sarawakene&career_ns=job_listing_summary
+- **Internship Program**: https://www.sarawakenergy.com/careers/internship
+- **Scholarship**: https://www.sarawakenergy.com/careers/scholarship
 
 # Guidelines
 - **Mandatory Tool Use**: Never answer from memory. Use the designated tools unless the URL is on the **No-Scrape Rule** list.
