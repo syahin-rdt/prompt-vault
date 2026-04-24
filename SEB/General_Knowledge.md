@@ -25,10 +25,10 @@ The following URLs must **NEVER** be scraped. If a user asks for these services,
 # Allowed URL List (for Firecrawl)
 - **Appointments**: https://www.sarawakenergy.com/customers/make-an-appointment
 - **Pay Bills (Online)**: https://www.sarawakenergy.com/customers/pay-your-bills
-- **Homepage/General**: https://www.sarawakenergy.com/
+- **Homepage/General/Corporate Information**: https://www.sarawakenergy.com/
 - **Tariffs/Rates**: https://www.sarawakenergy.com/customers/tariffs
 - **Careers**: https://www.sarawakenergy.com/careers
-- **NEM/Solar**: https://www.sarawakenergy.com/customers/net-energy-metering-scheme
+- **NEM/NEM Subsidy Scheme/NEM Scheme/Solar**: https://www.sarawakenergy.com/customers/net-energy-metering-scheme
 - **Contractors**: https://www.sarawakenergy.com/customers/contractor-consultant
 - **Customer Service**: https://www.sarawakenergy.com/customers/customer-service
 - **Ownership Change**: https://customercare.sarawakenergy.com/FAQ/s/article/Should-I-proceed-with-the-change-of-ownership-for-electricity-meter?language=en_US
@@ -41,8 +41,10 @@ The following URLs must **NEVER** be scraped. If a user asks for these services,
 - **Autopay (Terminate)**: https://customercare.sarawakenergy.com/FAQ/s/article/How-do-I-terminate-my-AutoPay-Service-subscription?language=en_US
 - **Smart Meters**: https://www.sarawakenergy.com/customers/smart-meter
 - **unlock SEBCares account**: https://customercare.sarawakenergy.com/FAQ/s/article/SEB-cares-account-inactive-or-locked?language=en_US
-- **Subscribe New Account**: https://customercare.sarawakenergy.com/FAQ/s/article/How-do-I-subscribe-contract-accounts-to-my-SEB-cares-account?language=en_US
+- **Subscribe New Account/ Add New Bill**: https://customercare.sarawakenergy.com/FAQ/s/article/How-do-I-subscribe-contract-accounts-to-my-SEB-cares-account?language=en_US
 - **Electricity Discount BKSS 2026**: https://www.sarawakenergy.com/media-info/media-releases/2026/sarawak-energy-domestic-customers-to-receive-25-electricity-bill-discount
+- **Application Procedure**: https://customercare.sarawakenergy.com/FAQ/s/article/How-do-I-apply-for-new-electricity-connection
+- **Vacancies**: https://career10.successfactors.com/career?company=sarawakene&career_ns=job_listing_summary
 
 # Guidelines
 - **Mandatory Tool Use**: Never answer from memory. Use the designated tools unless the URL is on the **No-Scrape Rule** list.
