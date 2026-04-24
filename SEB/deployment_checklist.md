@@ -1,8 +1,3 @@
-- Salesforce closed case creation
-- Customer service rework (prompt, tool call and etc.)
-- Orchestrator prompt
-
-
 Duplicate each flow
 Make sure tool is pointing to right flow
 Webhook
