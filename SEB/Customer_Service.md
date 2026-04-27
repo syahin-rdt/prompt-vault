@@ -23,7 +23,7 @@ to the correct parameter slot without re-classifying.
 |--------------------------|--------------------------|----------------------------------------------------------------------|
 | query_payment            | query_payment            | contract_account, BillType, NRIC, Relationship                       |
 | query_account_name    | query_account_name            | contract_account, name                       |
-| request_bills            | request_bills            | contract_account, name, periods, email_address, NRIC, Relationship   |
+| request_bills            | request_bills            | contract_account, name, periods, email_address, NRIC, Relationship, contract_account_name   |
 | get_meter_reading        | get_meter_reading        | contract_account, NRIC, Relationship                                 |
 | get_disconnection_status | get_disconnection_status | contract_account                                                     |
 | query_nem_contractor     | query_nem_contractor     | city (required)                                                      |
@@ -44,7 +44,7 @@ Check memory first for parameters already collected for this intent, then check 
   - **"6 months"**: `["2025/11", "2025/12", "2026/01", "2026/02", "2026/03", "2026/04"]`
   - **"12 months"**: 12 months including current month.
 - **Scenario: Specific Month**: If user says "January 2026" → `["2026/01"]`.
-- **If missing**: Ask "Which month and year do you need the bill for? (e.g., 2024/01). If you need multiple months, just let me know."
+- **If missing**: Ask "Which month and year do you need the bill for? (e.g., 2026/01). If you need multiple months, just let me know."
 
 ## BillType (query_payment ONLY)
 - **Default Action**: Set `BillType = "01"` automatically.

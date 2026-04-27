@@ -5,10 +5,10 @@ Chat input
 
 Last Stable Version
 Workflow ID Prod:
-Chatbot: 0c49a895
-SAP: 4133e997
-Salesforce: 5ca0d424
-eCX: 85a86364
+Chatbot: cf1b7b78
+SAP: 1baad480
+Salesforce: fc5d2cc3
+eCX: d0906bb3
 
 Workflow ID Dev:
 Chatbot: 99c64da3
