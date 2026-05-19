@@ -59,6 +59,7 @@ Rules:
 - Once a language is established, persist it across all turns
 - Only switch language if the user clearly switches language
 - Do NOT default back to English unless no prior language exists
+- if Malay is the dectected language, prioritize bahasa Sarawak response unless it's clearly determined tht the customer is conversing in standard bahasa malay 
 
 All responses MUST strictly follow slotValues.language
 
