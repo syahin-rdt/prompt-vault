@@ -1,0 +1,3849 @@
+{
+  "updatedAt": "2026-05-29T06:49:12.121Z",
+  "createdAt": "2026-04-14T07:12:52.740Z",
+  "id": "uXJ1LmKFGmTUmmdG",
+  "name": "Salesforce_PROD",
+  "description": null,
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e242d814-e1c1-4a55-9440-8c63846dcdd9",
+              "name": "Case ID",
+              "value": "={{ $('Create Case').item.json.compositeResponse[2].body.CaseNumber }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1232,
+        1056
+      ],
+      "id": "4e1ed494-6ecc-4309-ab09-b5518eace483",
+      "name": "Edit Fields6"
+    },
+    {
+      "parameters": {
+        "inputSource": "jsonExample",
+        "jsonExample": "{\n  \"customerName\": \"a string\",\n  \"mobilePhone\": \"a string\",\n  \"incidentLocation\": \"a string\",\n  \"issues\": \"a string\",\n  \"type\": \"a string\",\n  \"classification\": \"a string\",\n  \"category\": \"a string\",\n  \"subCategory\": \"a string\",\n  \"station\": \"a string\",\n  \"region\": \"a string\",\n  \"status\": \"a string\",\n  \"resolution_detail\": \"a string\",\n  \"recordtype\": \"a string\",\n  \"idType\": \"a string\",\n  \"NRIC_Passport_No\": \"a string\",\n  \"emailAddress\": \"a string\",\n  \"route\": \"a string\",\n  \"contract_account_number\": \"a string\"\n}"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -816,
+        1248
+      ],
+      "id": "8d8fe3f1-4c4b-437b-8485-2baaae338b7a",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d76b3e88-0511-44be-92d1-ecc2b4c1dbd9",
+              "name": "SuppliedName",
+              "value": "={{ $json.customerName }}",
+              "type": "string"
+            },
+            {
+              "id": "b827b987-c502-47ae-9622-89d0360231f6",
+              "name": "SuppliedPhone",
+              "value": "={{ $json.mobilePhone }}",
+              "type": "string"
+            },
+            {
+              "id": "c3b3d3ad-1201-40ac-8fe4-c73e4ccfea9f",
+              "name": "Origin",
+              "value": "Chat",
+              "type": "string"
+            },
+            {
+              "id": "ff00f526-e7a0-49bc-b39a-43ac06a0e0a2",
+              "name": "Type",
+              "value": "={{ $json.type }}",
+              "type": "string"
+            },
+            {
+              "id": "a0151e29-cb62-45d2-9a3c-c9b66b8d2afc",
+              "name": "Classification__c",
+              "value": "={{ $json.classification }}",
+              "type": "string"
+            },
+            {
+              "id": "22823151-b22d-4023-b9f8-e05d7aa8aced",
+              "name": "Category__c",
+              "value": "={{ $json.category }}",
+              "type": "string"
+            },
+            {
+              "id": "d4f2a8ca-a53d-41b2-a6d8-5b533365e90c",
+              "name": "Status",
+              "value": "={{ $json.status }}",
+              "type": "string"
+            },
+            {
+              "id": "e6ef6c03-8d01-468d-8133-67015977be53",
+              "name": "Description",
+              "value": "={{ $json.issues }}",
+              "type": "string"
+            },
+            {
+              "id": "ac75b3b7-2ff1-4424-a740-22cec4624e55",
+              "name": "Incident_Address__c",
+              "value": "={{ $json.incidentLocation }}",
+              "type": "string"
+            },
+            {
+              "id": "6bbd7689-39ec-44b1-a307-1eed360ffe6a",
+              "name": "recordtype",
+              "value": "={{ $json.recordtype }}",
+              "type": "string"
+            },
+            {
+              "id": "665a037d-08ec-41ff-9731-1fdf32d76c15",
+              "name": "idType",
+              "value": "={{ $json.idType }}",
+              "type": "string"
+            },
+            {
+              "id": "dfa90703-4394-4009-92af-29e14745cba1",
+              "name": "NRIC_Passport_No",
+              "value": "={{ $json.NRIC_Passport_No }}",
+              "type": "string"
+            },
+            {
+              "id": "fdee4d74-4992-4f5d-98bd-4fac6b7168cc",
+              "name": "SEBC_Email",
+              "value": "={{ $json.emailAddress }}",
+              "type": "string"
+            },
+            {
+              "id": "b4f6aee6-5bf1-4b4f-8abf-9711095b9d93",
+              "name": "route",
+              "value": "={{ $json.route }}",
+              "type": "string"
+            },
+            {
+              "id": "39ccf022-1054-4e10-8c4a-ac0a20aa78d6",
+              "name": "Sub_Category_1__c",
+              "value": "={{ $json.subCategory }}",
+              "type": "string"
+            },
+            {
+              "id": "4fd20abf-caa3-4880-9839-e5399c6df319",
+              "name": "Station__c",
+              "value": "={{ $json.station }}",
+              "type": "string"
+            },
+            {
+              "id": "ba2a0910-2675-45ab-add9-db9b177a1137",
+              "name": "Region__c",
+              "value": "={{ $json.region }}",
+              "type": "string"
+            },
+            {
+              "id": "edda8ca2-dc8f-4f75-9b9f-bfaf7bf07f7f",
+              "name": "Resolution_Detail__c",
+              "value": "={{ $json.resolution_detail }}",
+              "type": "string"
+            },
+            {
+              "id": "2726729b-d285-4133-ac91-822cfbaf8c35",
+              "name": "genesysIntegrationId",
+              "value": "=77890645-769a-4cdd-b685-30ebdf98d529",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -640,
+        1248
+      ],
+      "id": "ce92c3ea-ed3e-49b1-a6e1-ae098aab1d06",
+      "name": "Edit Fields7"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Access Token').item.json.instance_url }}/services/data/v66.0/composite",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Access Token').item.json.access_token }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"compositeRequest\": [\n    {\n      \"method\": \"GET\",\n      \"url\": \"/services/data/v66.0/query/?q=SELECT+Id,+PersonEmail,+PersonMobilePhone,+NRIC_Passport_No__pc,+SEBC_Email_1__c,+SEBC_Email_2__c,+SEBC_Email_3__c,+SEBC_Mobile_1__c,+SEBC_Mobile_2__c,+SEBC_Mobile_3__c,+Special_Customer__pc+FROM+Account+WHERE+SEBC_Mobile_1__c+=+'{{ $('Edit Fields7').item.json.SuppliedPhone }}'+order+by+createddate+asc+limit+1\",\n      \"referenceId\": \"acc\"\n    }\n  ]\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        704,
+        896
+      ],
+      "id": "0af59437-14d6-40b9-b756-d2965e85bbc1",
+      "name": "Check Account"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://sebcrm.my.salesforce.com/services/oauth2/token",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Basic TXIDbGIlbnRJRDpNeUNsaWVudFNIY3JldA=="
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "grant_type",
+              "value": "client_credentials"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -464,
+        1248
+      ],
+      "id": "346f03eb-23b9-461c-9fc2-6f214a25d5b7",
+      "name": "Access Token",
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "j7do9MUWSgM9LE5M",
+          "name": "SEB Salesforce [PROD]"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Access Token').item.json.instance_url }}/services/data/v66.0/composite",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Access Token').item.json.access_token }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"compositeRequest\": [\n    {\n        \"method\": \"GET\",\n        \"url\": \"/services/data/v66.0/query/?q=select+id+from+Contact+where+AccountId+=+'{{ $json.compositeResponse[0].body.records[0].Id }}'\",\n        \"referenceId\":\"contactRef\"\n    },\n    { \n      \"method\": \"POST\",\n      \"url\": \"/services/data/v66.0/sobjects/Case\",\n      \"httpHeaders\": { \n                        \"Sforce-Auto-Assign\": \"FALSE\" \n      },\n      \"referenceId\": \"refCase\",\n      \"body\": {\n        \"RecordType\": { \"Name\": \"Open Case\" },\n        \"Genesys_Origin__c\": true,\n        \"AccountId\": \"{{ $json.compositeResponse[0].body.records[0].Id }}\",\n        \"ContactId\": \"@{contactRef.records[0].Id}\",\n        \"Origin\": \"{{ $('Edit Fields7').item.json.Origin }}\",\n        \"Type\": \"{{ $('Edit Fields7').item.json.Type }}\",\n        \"Classification__c\": \"{{ $('Edit Fields7').item.json.Classification__c }}\",\n        \"Category__c\": \"{{ $('Edit Fields7').item.json.Category__c }}\",\n        \"Sub_Category_1__c\": \"{{ $('Edit Fields7').item.json.Sub_Category_1__c }}\",\n        \"Station__c\": \"{{ $('Edit Fields7').item.json.Station__c }}\",\n        \"Region__c\": \"{{ $('Edit Fields7').item.json.Region__c }}\",\n        \"Status\": \"{{ $('Edit Fields7').item.json.Status }}\",\n        \"Resolution_Detail__c\": \"{{ $('Edit Fields7').item.json.Resolution_Detail__c }}\",\n        \"Description\": \"{{ $('Edit Fields7').item.json.Description }} {{ $('When Executed by Another Workflow').item.json.contract_account_number }}\",\n        \"Incident_Address__c\": \"{{ $('Edit Fields7').item.json.Incident_Address__c }}\",\n        \"SuppliedEmail\": \"{{ $json.compositeResponse[0].body.records[0].SEBC_Email_1__c }}\",\n        \"SuppliedName\": \"{{ $('Edit Fields7').item.json.SuppliedName }}\",\n        \"SuppliedPhone\": \"{{ $('Edit Fields7').item.json.SuppliedPhone }}\"\n      }\n    },\n    {\n      \"method\": \"GET\",\n      \"url\": \"/services/data/v66.0/sobjects/Case/@{refCase.id}?fields=CaseNumber\",\n      \"referenceId\": \"refCaseDetail\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        896,
+        1056
+      ],
+      "id": "56737f49-e49d-4b7f-ba35-5296e67f61da",
+      "name": "Create Case"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Access Token').item.json.instance_url }}/services/data/v66.0/composite",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Access Token').item.json.access_token }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={ \n  \"compositeRequest\": [ \n    { \n      \"method\": \"POST\", \n      \"url\": \"/services/data/v66.0/sobjects/Account\", \n      \"referenceId\": \"refAccount\", \n      \"body\": { \n        \"LastName\" : \"{{ $('Edit Fields7').item.json.SuppliedName }}\", \n        \"RecordType\": { \n                        \"Name\": \"{{ $('Edit Fields7').item.json.recordtype }}\" \n                  },  \n        \"SEBC_Mobile_1__c\" : \"{{ $('Edit Fields7').item.json.SuppliedPhone }}\"\n      }\n    }\n  ]\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        704,
+        1392
+      ],
+      "id": "bf25bd7e-9436-4b16-af58-3bff4a991668",
+      "name": "Create Account"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e242d814-e1c1-4a55-9440-8c63846dcdd9",
+              "name": "Case ID",
+              "value": "={{ $('Create Case2').item.json.compositeResponse[2].body.CaseNumber }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1232,
+        1392
+      ],
+      "id": "e3e5718f-b60d-425e-b415-3c65205968b2",
+      "name": "Edit Fields8"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Access Token').item.json.instance_url }}/services/data/v66.0/composite",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Access Token').item.json.access_token }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"compositeRequest\": [\n    {\n      \"method\": \"GET\",\n      \"url\": \"/services/data/v66.0/query/?q=SELECT+Id,+PersonEmail,+PersonMobilePhone,+NRIC_Passport_No__pc,+SEBC_Email_1__c,+SEBC_Email_2__c,+SEBC_Email_3__c,+SEBC_Mobile_1__c,+SEBC_Mobile_2__c,+SEBC_Mobile_3__c,+Special_Customer__pc+FROM+Account+WHERE+SEBC_Mobile_1__c+=+'{{ $('Edit Fields7').item.json.SuppliedPhone }}'+order+by+createddate+asc+limit+1\",\n      \"referenceId\": \"acc\"\n    }\n  ]\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        704,
+        1056
+      ],
+      "id": "0fb91386-1f98-4c48-916f-4a93c9d1b34c",
+      "name": "Check Account1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Access Token').item.json.instance_url }}/services/data/v66.0/composite",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Access Token').item.json.access_token }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"compositeRequest\": [\n    {\n        \"method\": \"GET\",\n        \"url\": \"/services/data/v66.0/query/?q=select+id+from+Contact+where+AccountId+=+'{{ $json.compositeResponse[0].body.id }}'\",\n        \"referenceId\":\"contactRef\"\n    },\n    { \n      \"method\": \"POST\",\n      \"url\": \"/services/data/v66.0/sobjects/Case\",\n      \"httpHeaders\": { \n                        \"Sforce-Auto-Assign\": \"FALSE\" \n      },\n      \"referenceId\": \"refCase\",\n      \"body\": {\n        \"RecordType\": { \"Name\": \"Open Case\" },\n        \"Genesys_Origin__c\": true,\n        \"AccountId\": \"{{ $json.compositeResponse[0].body.id }}\",\n        \"ContactId\": \"@{contactRef.records[0].Id}\",\n        \"Origin\": \"{{ $('Edit Fields7').item.json.Origin }}\",\n        \"Type\": \"{{ $('Edit Fields7').item.json.Type }}\",\n        \"Classification__c\": \"{{ $('Edit Fields7').item.json.Classification__c }}\",\n        \"Category__c\": \"{{ $('Edit Fields7').item.json.Category__c }}\",\n        \"Sub_Category_1__c\": \"{{ $('Edit Fields7').item.json.Sub_Category_1__c }}\",\n        \"Station__c\": \"{{ $('Edit Fields7').item.json.Station__c }}\",\n        \"Region__c\": \"{{ $('Edit Fields7').item.json.Region__c }}\",\n        \"Status\": \"{{ $('Edit Fields7').item.json.Status }}\",\n        \"Resolution_Detail__c\": \"{{ $('Edit Fields7').item.json.Resolution_Detail__c }}\",\n        \"Description\": \"{{ $('Edit Fields7').item.json.Description }}\",\n        \"Incident_Address__c\": \"{{ $('Edit Fields7').item.json.Incident_Address__c }}\",\n        \"SuppliedEmail\": \"{{ $('Edit Fields7').item.json.SEBC_Email }}\",\n        \"SuppliedName\": \"{{ $('Edit Fields7').item.json.SuppliedName }}\",\n        \"SuppliedPhone\": \"{{ $('Edit Fields7').item.json.SuppliedPhone }}\"\n      }\n    },\n    {\n      \"method\": \"GET\",\n      \"url\": \"/services/data/v66.0/sobjects/Case/@{refCase.id}?fields=CaseNumber\",\n      \"referenceId\": \"refCaseDetail\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        896,
+        1392
+      ],
+      "id": "08115938-36be-4416-9bc2-f69d14345170",
+      "name": "Create Case2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "f9b36cc5-9b8f-45a3-b114-53b724e9133d",
+              "leftValue": "={{ $('Edit Fields7').item.json.SuppliedPhone }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "empty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "049d7f4f-b7ab-4b39-9cde-e68ea8ea96f3",
+              "leftValue": "={{ $('Edit Fields7').item.json.SuppliedPhone }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notExists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        464,
+        880
+      ],
+      "id": "190fc691-c437-4789-b54c-02fa2f33c0f1",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e242d814-e1c1-4a55-9440-8c63846dcdd9",
+              "name": "Case ID",
+              "value": "=Before we proceed, I would need your phone number. Could you please provide it?",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        704,
+        752
+      ],
+      "id": "3e475a5b-1b93-4218-92c9-db8993cb1283",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "f9b36cc5-9b8f-45a3-b114-53b724e9133d",
+              "leftValue": "={{ $('Edit Fields7').item.json.SuppliedName }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "empty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "049d7f4f-b7ab-4b39-9cde-e68ea8ea96f3",
+              "leftValue": "={{ $('Edit Fields7').item.json.SuppliedName }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notExists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        304,
+        1248
+      ],
+      "id": "eaa1e1cb-ef2e-4a4d-be11-061f77724733",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "f9b36cc5-9b8f-45a3-b114-53b724e9133d",
+              "leftValue": "={{ $('Edit Fields7').item.json.SuppliedPhone }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "empty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "049d7f4f-b7ab-4b39-9cde-e68ea8ea96f3",
+              "leftValue": "={{ $('Edit Fields7').item.json.SuppliedPhone }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notExists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        480,
+        1376
+      ],
+      "id": "30a3c196-900f-4184-b541-a2bf7fa1dbb1",
+      "name": "If2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e242d814-e1c1-4a55-9440-8c63846dcdd9",
+              "name": "Case ID",
+              "value": "=Before we proceed, I would need your name. Could you please provide it?",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        480,
+        1232
+      ],
+      "id": "77462e95-e22a-40bd-b4ce-aa025a15b878",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e242d814-e1c1-4a55-9440-8c63846dcdd9",
+              "name": "Case ID",
+              "value": "=Before we proceed, I would need your mobile phone. Could you please provide it?",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        704,
+        1232
+      ],
+      "id": "1ba3b945-b1e4-416d-b161-1dd6585bb129",
+      "name": "Edit Fields2"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.apse1.pure.cloud/api/v2/conversations/messages/{{ $('Edit Fields7').item.json.genesysIntegrationId }}/inbound/open/message",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"channel\": {\n    \"from\": {\n      \"firstName\": \"{{ $('When Executed by Another Workflow').item.json.customerName }}\",\n      \"idType\": \"Phone\",\n      \"id\": \"+{{ $('When Executed by Another Workflow').item.json.mobilePhone }}\"\n    },\n    \"time\": \"{{ $now.setZone('Asia/Kuala_Lumpur') }}\"\n  },\n  \"text\": \"You have received a case from Carina, http://sebcrm.my.salesforce.com/{{ $json.compositeResponse[2].body.Id }}\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        1056,
+        1392
+      ],
+      "id": "bebc73ff-c33b-4482-b499-91c9aadbdb76",
+      "name": "HTTP Request",
+      "credentials": {
+        "oAuth2Api": {
+          "id": "SmLhQRyzR24DxoQE",
+          "name": "SEB PROD ClientCred"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.apse1.pure.cloud/api/v2/conversations/messages/{{ $('Edit Fields7').item.json.genesysIntegrationId }}/inbound/open/message",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"channel\": {\n    \"from\": {\n      \"firstName\": \"{{ $('When Executed by Another Workflow').item.json.customerName }}\",\n      \"idType\": \"Phone\",\n      \"id\": \"+{{ $('When Executed by Another Workflow').item.json.mobilePhone }}\"\n    },\n    \"time\": \"{{ $now.setZone('Asia/Kuala_Lumpur') }}\"\n  },\n  \"text\": \"You have received a case from Carina, http://sebcrm.my.salesforce.com/{{ $json.compositeResponse[2].body.Id }}\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        1056,
+        1056
+      ],
+      "id": "71f20b38-2df3-4551-8a46-132addfda0b4",
+      "name": "HTTP Request1",
+      "credentials": {
+        "oAuth2Api": {
+          "id": "SmLhQRyzR24DxoQE",
+          "name": "SEB PROD ClientCred"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Access Token').item.json.instance_url }}/services/data/v66.0/composite",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Access Token').item.json.access_token }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"compositeRequest\": [\n    {\n      \"method\": \"GET\",\n      \"url\": \"/services/data/v66.0/query/?q=SELECT+Id,+Type__c,+Push_Message__c,+Area__c,+Station__c,+Unplanned_Restoration_Date__c,+Scheduled_Maintenance_Start_Date__c,+Causes__c,+Scheduled_Maintenance_End_Date__c+FROM+Announcement__c+WHERE+Station__c+=+'{{ $('Edit Fields7').item.json.Station__c }}'+AND+(DAY_ONLY(convertTimezone(Scheduled_Maintenance_Start_Date__c))+>=+{{ $now.setZone('Asia/Kuala_Lumpur').toFormat('yyyy-MM-dd') }}+OR+Push_Date__c+>=+TODAY)+order+by+Scheduled_Maintenance_Start_Date__c+asc\",\n      \"referenceId\": \"announcements\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        304,
+        1984
+      ],
+      "id": "488121a2-e0d9-4929-be35-2e57e00b9635",
+      "name": "Outage Announcement"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "compositeResponse[0].body.records",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        848,
+        2048
+      ],
+      "id": "92efa01c-012f-43ee-9527-5d0b34cea1dd",
+      "name": "Split Out"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "95f2f20e-134b-4451-925e-5f57c20061ff",
+              "name": "Type",
+              "value": "={{ $json.Type__c }}",
+              "type": "string"
+            },
+            {
+              "id": "9283f8c5-823c-412c-9098-c717c6b97d0a",
+              "name": "Push Message",
+              "value": "={{ $json.Push_Message__c }}",
+              "type": "string"
+            },
+            {
+              "id": "c6ed51b3-6c05-4a86-bcdb-7ecab718c82a",
+              "name": "Area",
+              "value": "={{ $json.Area__c }}",
+              "type": "string"
+            },
+            {
+              "id": "0c6012a8-3e0d-4727-9448-69f6d1467e1b",
+              "name": "Station",
+              "value": "={{ $json.Station__c }}",
+              "type": "string"
+            },
+            {
+              "id": "343f1531-e7ba-4dc5-ac92-0ab5b5b4dd2b",
+              "name": "Unplanned_Restoration_Date",
+              "value": "={{ DateTime.fromISO($json.Unplanned_Restoration_Date__c).setZone('Asia/Kuala_Lumpur').toFormat('yyyy-MM-dd HH:mm:ss') }}",
+              "type": "string"
+            },
+            {
+              "id": "2aed5049-f648-4275-8a65-b809cea897c5",
+              "name": "Scheduled_Maintenance_Start_Date",
+              "value": "={{ DateTime.fromISO($json.Scheduled_Maintenance_Start_Date__c).setZone('Asia/Kuala_Lumpur').toFormat('yyyy-MM-dd HH:mm:ss') }}",
+              "type": "string"
+            },
+            {
+              "id": "20f83583-847b-491d-8eaf-5e229262a6f9",
+              "name": "Scheduled_Maintenance_End_Date",
+              "value": "={{ DateTime.fromISO($json.Scheduled_Maintenance_End_Date__c).setZone('Asia/Kuala_Lumpur').toFormat('yyyy-MM-dd HH:mm:ss') }}",
+              "type": "string"
+            },
+            {
+              "id": "df6faeb5-8a8b-458e-96a2-71bffcd64d9b",
+              "name": "Causes",
+              "value": "={{ $json.Causes__c }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1088,
+        2048
+      ],
+      "id": "c2259c4d-44d4-4af9-9a4a-1e2c2964b442",
+      "name": "Edit Fields4"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "f9b36cc5-9b8f-45a3-b114-53b724e9133d",
+              "leftValue": "={{ $json.compositeResponse[0].body.records }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "empty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "049d7f4f-b7ab-4b39-9cde-e68ea8ea96f3",
+              "leftValue": "={{ $json.compositeResponse[0].body.records }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "notExists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        528,
+        1984
+      ],
+      "id": "5bf315e4-272d-4f81-835e-8a3071eb245a",
+      "name": "If3"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e242d814-e1c1-4a55-9440-8c63846dcdd9",
+              "name": "Case ID",
+              "value": "=No Outages report in selected Region.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        848,
+        1904
+      ],
+      "id": "95c9a304-15fa-4b75-81a0-fe71c575c558",
+      "name": "Edit Fields3"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Access Token').item.json.instance_url }}/services/data/v66.0/composite",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Access Token').item.json.access_token }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"compositeRequest\": [\n    {\n      \"method\": \"GET\",\n      \"url\": \"/services/data/v66.0/query/?q=SELECT+Id+,+CaseNumber+,+Status+,+Priority+,+Resolution_Detail__c+,+ClosedDate+,+Station__c+,+Region__c+,+Category__c+,+Sub_Category_1__c+,+Summary_Description__c+,+CreatedDate+FROM+Case+WHERE+IsClosed+=+false+AND+(Account.SEBC_Email_1__c+=+'{{ $('Edit Fields7').item.json.SEBC_Email }}'+OR+Account.SEBC_Email_2__c+=+'{{ $('Edit Fields7').item.json.SEBC_Email }}'+OR+Account.SEBC_Email_3__c+=+'{{ $('Edit Fields7').item.json.SEBC_Email }}'+OR+Account.PersonMobilePhone+LIKE+'%25{{ $('Edit Fields7').item.json.SuppliedPhone }}'+OR+Account.SEBC_Mobile_1__c+LIKE+'%25{{ $('Edit Fields7').item.json.SuppliedPhone }}'+OR+Account.SEBC_Mobile_2__c+LIKE+'%25{{ $('Edit Fields7').item.json.SuppliedPhone }}'+OR+Account.SEBC_Mobile_3__c+LIKE+'%25{{ $('Edit Fields7').item.json.SuppliedPhone }}'+)+AND+DAY_ONLY(CreatedDate)+>=+{{ $now.setZone('Asia/Kuala_Lumpur').minus({ months: 3 }).toFormat('yyyy-MM-dd') }}+AND+DAY_ONLY(CreatedDate)+<=+{{ $now.setZone('Asia/Kuala_Lumpur').toFormat('yyyy-MM-dd') }}+order+by+createddate+desc+limit+10\",\n      \"referenceId\": \"cases\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        304,
+        1680
+      ],
+      "id": "bdb13068-0a2a-4c9e-99dd-3a0f37b46a79",
+      "name": "Case Enquiry"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "f9b36cc5-9b8f-45a3-b114-53b724e9133d",
+              "leftValue": "={{ $('Edit Fields7').item.json.caseId }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "empty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "049d7f4f-b7ab-4b39-9cde-e68ea8ea96f3",
+              "leftValue": "={{ $('Edit Fields7').item.json.caseId }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notExists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        528,
+        1680
+      ],
+      "id": "a27d6fda-51ad-4142-b330-48ffe4ae25e8",
+      "name": "If4"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "compositeResponse[0].body.records",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        848,
+        1744
+      ],
+      "id": "057740f7-db8e-4dec-b7df-7ddd44902191",
+      "name": "Split Out1"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "compositeResponse[0].body.records",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        848,
+        1616
+      ],
+      "id": "c8e57fac-72eb-4e64-80f1-71a40f84045d",
+      "name": "Split Out2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a9c82b44-84b8-4ca2-a6de-236712aa7798",
+              "name": "CaseNumber",
+              "value": "={{ $json.CaseNumber }}",
+              "type": "string"
+            },
+            {
+              "id": "943671f2-95f4-4e1d-a9e0-739bcc9fb22d",
+              "name": "CreatedDate",
+              "value": "={{ $json.CreatedDate }}",
+              "type": "string"
+            },
+            {
+              "id": "2b1b19ec-7fbf-4ff8-8632-d1cb1dd77f52",
+              "name": "Category",
+              "value": "={{ $json.Category__c }}",
+              "type": "string"
+            },
+            {
+              "id": "dd82394c-5975-4780-aed2-c45688963423",
+              "name": "SubCategory",
+              "value": "={{ $json.Sub_Category_1__c }}",
+              "type": "string"
+            },
+            {
+              "id": "2f3992db-18c9-4e45-b267-ed94acb698dd",
+              "name": "Status",
+              "value": "={{ $json.Status }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1088,
+        1616
+      ],
+      "id": "893836b5-7680-4aeb-b0a4-9fc1f52ad75c",
+      "name": "Edit Fields10"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e242d814-e1c1-4a55-9440-8c63846dcdd9",
+              "name": "Case ID",
+              "value": "=Which cases would you like to check on?\n{{ JSON.stringify($json.data) }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1520,
+        1616
+      ],
+      "id": "eac87549-49fa-429b-ae09-fd60aa0c64e3",
+      "name": "Edit Fields11"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        1312,
+        1616
+      ],
+      "id": "5d138107-6e59-4551-b868-940236ab6226",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "10303c45-6aef-47e0-8fc7-ec2e02a86ea4",
+              "leftValue": "={{ $json.CaseNumber }}",
+              "rightValue": "={{ $('Edit Fields7').item.json.caseId }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        1088,
+        1744
+      ],
+      "id": "1905f968-3e5c-4dea-b508-8bfe06b2b357",
+      "name": "Filter"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e242d814-e1c1-4a55-9440-8c63846dcdd9",
+              "name": "Status",
+              "value": "={{ $json.Status }}",
+              "type": "string"
+            },
+            {
+              "id": "ca51be72-c0b6-41bf-a67a-81652d6db3b8",
+              "name": "Resolution_Detail__c",
+              "value": "={{ $json.Resolution_Detail__c?.trim() || \"We have yet to provide a resolution, we'll get back to you shortly.\" }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1312,
+        1744
+      ],
+      "id": "1383f062-19be-422d-a408-5fe621342ffe",
+      "name": "Edit Fields12"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://sebcrm--full.sandbox.my.salesforce.com/services/oauth2/token",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Basic TXIDbGIlbnRJRDpNeUNsaWVudFNIY3JldA=="
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "grant_type",
+              "value": "client_credentials"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        2720,
+        1008
+      ],
+      "id": "875acf1f-b663-4029-8903-bb238a7c5b89",
+      "name": "Access Token1",
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "MScCAMVobwKI1lv4",
+          "name": "SEB Salesforce DEV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "binaryToPropery",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1.1,
+      "position": [
+        2496,
+        1008
+      ],
+      "id": "2d0a6a0a-b021-4b7d-a63a-3cb4e79802fa",
+      "name": "Extract from File1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Access Token1').item.json.instance_url }}/services/data/v66.0/composite",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Access Token1').item.json.access_token }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"allOrNone\": true,\n  \"compositeRequest\": [\n    {\n      \"method\": \"POST\",\n      \"url\": \"/services/data/v66.0/sobjects/ContentVersion\",\n      \"referenceId\": \"file1\",\n      \"body\": {\n        \"Title\": \"{{ $('Download Attachment1').item.json.normalizedMessage.content[0].attachment.filename }}\",\n        \"PathOnClient\": \"{{ $('Download Attachment1').item.json.normalizedMessage.content[0].attachment.filename }}\",\n        \"VersionData\": \"{{ $('Extract from File1').item.json.data }}\"\n      }\n    },\n    {\n      \"method\": \"GET\",\n      \"url\": \"/services/data/v66.0/query/?q=select+id,+ContentDocumentId+from+ContentVersion+where+id='@{file1.id}'\",\n      \"referenceId\": \"contentVersion1\"\n    },\n    {\n      \"method\": \"POST\",\n      \"url\": \"/services/data/v66.0/sobjects/ContentDocumentLink\",\n      \"referenceId\": \"link1\",\n      \"body\": {\n        \"ContentDocumentId\": \"@{contentVersion1.records[0].ContentDocumentId}\",\n        \"LinkedEntityId\": \"{{ $('Create Case').item.json.compositeResponse[2].body.Id }}\",\n        \"ShareType\": \"V\"\n      }\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        2944,
+        1008
+      ],
+      "id": "1d0b5997-9dfc-441d-85f3-e1ab6565cb63",
+      "name": "Upload Attachment1"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.normalizedMessage.content[0].attachment.url }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        2336,
+        1008
+      ],
+      "id": "e89e5710-1a6a-4f98-bb9b-30a544e82ad6",
+      "name": "Download Attachment1",
+      "credentials": {
+        "oAuth2Api": {
+          "id": "mviUHzVp9m9DTHVp",
+          "name": "Sarawak Energy DEV OAuth2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://api.apse1.pure.cloud/api/v2/conversations/messages/{{ $('When Executed by Another Workflow').item.json.genesysConvId }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        1456,
+        1072
+      ],
+      "id": "98347622-c0d1-4b90-a7c9-069544150b6c",
+      "name": "Get Chat Attachment",
+      "credentials": {
+        "oAuth2Api": {
+          "id": "mviUHzVp9m9DTHVp",
+          "name": "Sarawak Energy DEV OAuth2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f40d10ae-6dca-4679-8d14-67296ad333ac",
+              "name": "mediaIDs",
+              "value": "={{ $json.participants[0].messages\n  .filter(m => m.messageMetadata?.content?.some(c => c.contentType === 'Attachment'))\n  .map(m => m.messageId) }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1632,
+        1072
+      ],
+      "id": "791b05d1-1ade-4d8a-abc8-986d7d517535",
+      "name": "Edit Fields5"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.apse1.pure.cloud/api/v2/conversations/messages/{{ $json.mediaIDs }}/details",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        2160,
+        1008
+      ],
+      "id": "61988d2c-e171-41cd-a841-c1d8286616ad",
+      "name": "Get Chat Attachment1",
+      "credentials": {
+        "oAuth2Api": {
+          "id": "mviUHzVp9m9DTHVp",
+          "name": "Sarawak Energy DEV OAuth2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "mediaIDs",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        2000,
+        1008
+      ],
+      "id": "4de8b8cd-a6ff-492b-a5fb-33178b512887",
+      "name": "Split Out3"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "945360cc-369f-492a-a7b0-a12c7c6cf342",
+              "leftValue": "={{ $json.mediaIDs }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1792,
+        1072
+      ],
+      "id": "b650e3cb-0e90-47ab-b2a1-bf576af42381",
+      "name": "If5"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e242d814-e1c1-4a55-9440-8c63846dcdd9",
+              "name": "Case ID",
+              "value": "={{ $('Create Case').item.json.compositeResponse[2].body.CaseNumber }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2000,
+        1136
+      ],
+      "id": "a3d0cba8-89c5-43a2-b5ce-d9e5e2a2091a",
+      "name": "Edit Fields9"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e242d814-e1c1-4a55-9440-8c63846dcdd9",
+              "name": "Case ID",
+              "value": "={{ $('Create Case').item.json.compositeResponse[2].body.CaseNumber }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3120,
+        1008
+      ],
+      "id": "8b1fd78e-ec6b-4256-944f-af01eaac2308",
+      "name": "Edit Fields13"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Edit Fields7').item.json.route }}",
+                    "rightValue": "check_account",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "0dc7f901-7ddb-4e8e-9a5e-454ea99d3891"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "check_account"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "d4c66ff1-bc0e-424e-9685-9d438f4aa3bf",
+                    "leftValue": "={{ $('Edit Fields7').item.json.route }}",
+                    "rightValue": "create_case",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "create_case"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "58673390-2d16-43ab-a1c4-1ea9cc75ed57",
+                    "leftValue": "={{ $('Edit Fields7').item.json.route }}",
+                    "rightValue": "create_acc_case",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "create_acc_case"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "af435378-1972-430d-94f4-81dbabcdd4cf",
+                    "leftValue": "={{ $('Edit Fields7').item.json.route }}",
+                    "rightValue": "case_enquiry",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "case_enquiry"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "0694311f-37f9-459b-99a4-ae9e0ac7e0a4",
+                    "leftValue": "={{ $('Edit Fields7').item.json.route }}",
+                    "rightValue": "outage_announcement",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "outage_announcement"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -288,
+        1200
+      ],
+      "id": "d7bbece5-3f0e-44ff-b8e0-1465240721fe",
+      "name": "Switch"
+    }
+  ],
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields7": {
+      "main": [
+        [
+          {
+            "node": "Access Token",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Access Token": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Case": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Account": {
+      "main": [
+        [
+          {
+            "node": "Create Case2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Account1": {
+      "main": [
+        [
+          {
+            "node": "Create Case",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Case2": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Check Account",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If2": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Create Account",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Outage Announcement": {
+      "main": [
+        [
+          {
+            "node": "If3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If3": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Case Enquiry": {
+      "main": [
+        [
+          {
+            "node": "If4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If4": {
+      "main": [
+        [
+          {
+            "node": "Split Out2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Split Out1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out1": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out2": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields10": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields11",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields12",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Access Token1": {
+      "main": [
+        [
+          {
+            "node": "Upload Attachment1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File1": {
+      "main": [
+        [
+          {
+            "node": "Access Token1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload Attachment1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields13",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download Attachment1": {
+      "main": [
+        [
+          {
+            "node": "Extract from File1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Chat Attachment": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields5": {
+      "main": [
+        [
+          {
+            "node": "If5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Chat Attachment1": {
+      "main": [
+        [
+          {
+            "node": "Download Attachment1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out3": {
+      "main": [
+        [
+          {
+            "node": "Get Chat Attachment1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If5": {
+      "main": [
+        [
+          {
+            "node": "Split Out3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Check Account1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Case Enquiry",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Outage Announcement",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "049f0502-a52e-42f1-a2c1-215863e57101",
+  "activeVersionId": "05f0fa36-0f6b-46c9-ada3-4873081372ee",
+  "versionCounter": 1374,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2026-04-14T07:12:52.740Z",
+      "createdAt": "2026-04-14T07:12:52.740Z",
+      "role": "workflow:owner",
+      "workflowId": "uXJ1LmKFGmTUmmdG",
+      "projectId": "tcymCytI6Jbvv5nz",
+      "project": {
+        "updatedAt": "2025-06-06T08:34:33.987Z",
+        "createdAt": "2025-06-03T03:49:01.764Z",
+        "id": "tcymCytI6Jbvv5nz",
+        "name": "Reverb KeyAI <support@radiantcomm.com>",
+        "type": "personal",
+        "icon": null,
+        "description": null,
+        "creatorId": "5309bc79-8dc9-498f-8b2b-b1e6643ee07a"
+      }
+    }
+  ],
+  "tags": [
+    {
+      "updatedAt": "2025-11-12T03:44:16.591Z",
+      "createdAt": "2025-11-12T03:44:16.591Z",
+      "id": "yhlNXHjdNEjSSMpB",
+      "name": "SE"
+    }
+  ],
+  "parentFolder": {
+    "updatedAt": "2026-04-22T03:07:45.789Z",
+    "createdAt": "2026-04-22T03:07:45.789Z",
+    "id": "IjcNmmyosiytKwSw",
+    "name": "PROD",
+    "parentFolderId": "hDZM4EotYpG3mjUT"
+  },
+  "activeVersion": {
+    "updatedAt": "2026-05-29T02:37:52.721Z",
+    "createdAt": "2026-05-29T02:37:51.968Z",
+    "versionId": "05f0fa36-0f6b-46c9-ada3-4873081372ee",
+    "workflowId": "uXJ1LmKFGmTUmmdG",
+    "nodes": [
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "e242d814-e1c1-4a55-9440-8c63846dcdd9",
+                "name": "Case ID",
+                "value": "={{ $('Create Case').item.json.compositeResponse[2].body.CaseNumber }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1232,
+          1056
+        ],
+        "id": "4e1ed494-6ecc-4309-ab09-b5518eace483",
+        "name": "Edit Fields6"
+      },
+      {
+        "parameters": {
+          "inputSource": "jsonExample",
+          "jsonExample": "{\n  \"customerName\": \"a string\",\n  \"mobilePhone\": \"a string\",\n  \"incidentLocation\": \"a string\",\n  \"issues\": \"a string\",\n  \"type\": \"a string\",\n  \"classification\": \"a string\",\n  \"category\": \"a string\",\n  \"subCategory\": \"a string\",\n  \"station\": \"a string\",\n  \"region\": \"a string\",\n  \"status\": \"a string\",\n  \"resolution_detail\": \"a string\",\n  \"recordtype\": \"a string\",\n  \"idType\": \"a string\",\n  \"NRIC_Passport_No\": \"a string\",\n  \"emailAddress\": \"a string\",\n  \"route\": \"a string\",\n  \"contract_account_number\": \"a string\"\n}"
+        },
+        "type": "n8n-nodes-base.executeWorkflowTrigger",
+        "typeVersion": 1.1,
+        "position": [
+          -816,
+          1248
+        ],
+        "id": "8d8fe3f1-4c4b-437b-8485-2baaae338b7a",
+        "name": "When Executed by Another Workflow"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "d76b3e88-0511-44be-92d1-ecc2b4c1dbd9",
+                "name": "SuppliedName",
+                "value": "={{ $json.customerName }}",
+                "type": "string"
+              },
+              {
+                "id": "b827b987-c502-47ae-9622-89d0360231f6",
+                "name": "SuppliedPhone",
+                "value": "={{ $json.mobilePhone }}",
+                "type": "string"
+              },
+              {
+                "id": "c3b3d3ad-1201-40ac-8fe4-c73e4ccfea9f",
+                "name": "Origin",
+                "value": "Chat",
+                "type": "string"
+              },
+              {
+                "id": "ff00f526-e7a0-49bc-b39a-43ac06a0e0a2",
+                "name": "Type",
+                "value": "={{ $json.type }}",
+                "type": "string"
+              },
+              {
+                "id": "a0151e29-cb62-45d2-9a3c-c9b66b8d2afc",
+                "name": "Classification__c",
+                "value": "={{ $json.classification }}",
+                "type": "string"
+              },
+              {
+                "id": "22823151-b22d-4023-b9f8-e05d7aa8aced",
+                "name": "Category__c",
+                "value": "={{ $json.category }}",
+                "type": "string"
+              },
+              {
+                "id": "d4f2a8ca-a53d-41b2-a6d8-5b533365e90c",
+                "name": "Status",
+                "value": "={{ $json.status }}",
+                "type": "string"
+              },
+              {
+                "id": "e6ef6c03-8d01-468d-8133-67015977be53",
+                "name": "Description",
+                "value": "={{ $json.issues }}",
+                "type": "string"
+              },
+              {
+                "id": "ac75b3b7-2ff1-4424-a740-22cec4624e55",
+                "name": "Incident_Address__c",
+                "value": "={{ $json.incidentLocation }}",
+                "type": "string"
+              },
+              {
+                "id": "6bbd7689-39ec-44b1-a307-1eed360ffe6a",
+                "name": "recordtype",
+                "value": "={{ $json.recordtype }}",
+                "type": "string"
+              },
+              {
+                "id": "665a037d-08ec-41ff-9731-1fdf32d76c15",
+                "name": "idType",
+                "value": "={{ $json.idType }}",
+                "type": "string"
+              },
+              {
+                "id": "dfa90703-4394-4009-92af-29e14745cba1",
+                "name": "NRIC_Passport_No",
+                "value": "={{ $json.NRIC_Passport_No }}",
+                "type": "string"
+              },
+              {
+                "id": "fdee4d74-4992-4f5d-98bd-4fac6b7168cc",
+                "name": "SEBC_Email",
+                "value": "={{ $json.emailAddress }}",
+                "type": "string"
+              },
+              {
+                "id": "b4f6aee6-5bf1-4b4f-8abf-9711095b9d93",
+                "name": "route",
+                "value": "={{ $json.route }}",
+                "type": "string"
+              },
+              {
+                "id": "39ccf022-1054-4e10-8c4a-ac0a20aa78d6",
+                "name": "Sub_Category_1__c",
+                "value": "={{ $json.subCategory }}",
+                "type": "string"
+              },
+              {
+                "id": "4fd20abf-caa3-4880-9839-e5399c6df319",
+                "name": "Station__c",
+                "value": "={{ $json.station }}",
+                "type": "string"
+              },
+              {
+                "id": "ba2a0910-2675-45ab-add9-db9b177a1137",
+                "name": "Region__c",
+                "value": "={{ $json.region }}",
+                "type": "string"
+              },
+              {
+                "id": "edda8ca2-dc8f-4f75-9b9f-bfaf7bf07f7f",
+                "name": "Resolution_Detail__c",
+                "value": "={{ $json.resolution_detail }}",
+                "type": "string"
+              },
+              {
+                "id": "2726729b-d285-4133-ac91-822cfbaf8c35",
+                "name": "genesysIntegrationId",
+                "value": "=77890645-769a-4cdd-b685-30ebdf98d529",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          -640,
+          1248
+        ],
+        "id": "ce92c3ea-ed3e-49b1-a6e1-ae098aab1d06",
+        "name": "Edit Fields7"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "={{ $('Access Token').item.json.instance_url }}/services/data/v66.0/composite",
+          "sendHeaders": true,
+          "headerParameters": {
+            "parameters": [
+              {
+                "name": "Authorization",
+                "value": "=Bearer {{ $('Access Token').item.json.access_token }}"
+              }
+            ]
+          },
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={\n  \"compositeRequest\": [\n    {\n      \"method\": \"GET\",\n      \"url\": \"/services/data/v66.0/query/?q=SELECT+Id,+PersonEmail,+PersonMobilePhone,+NRIC_Passport_No__pc,+SEBC_Email_1__c,+SEBC_Email_2__c,+SEBC_Email_3__c,+SEBC_Mobile_1__c,+SEBC_Mobile_2__c,+SEBC_Mobile_3__c,+Special_Customer__pc+FROM+Account+WHERE+SEBC_Mobile_1__c+=+'{{ $('Edit Fields7').item.json.SuppliedPhone }}'+order+by+createddate+asc+limit+1\",\n      \"referenceId\": \"acc\"\n    }\n  ]\n}\n",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.4,
+        "position": [
+          704,
+          896
+        ],
+        "id": "0af59437-14d6-40b9-b756-d2965e85bbc1",
+        "name": "Check Account"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://sebcrm.my.salesforce.com/services/oauth2/token",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "httpBasicAuth",
+          "sendHeaders": true,
+          "headerParameters": {
+            "parameters": [
+              {
+                "name": "Authorization",
+                "value": "Basic TXIDbGIlbnRJRDpNeUNsaWVudFNIY3JldA=="
+              }
+            ]
+          },
+          "sendBody": true,
+          "contentType": "form-urlencoded",
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "grant_type",
+                "value": "client_credentials"
+              }
+            ]
+          },
+          "options": {
+            "redirect": {
+              "redirect": {}
+            }
+          }
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.4,
+        "position": [
+          -464,
+          1248
+        ],
+        "id": "346f03eb-23b9-461c-9fc2-6f214a25d5b7",
+        "name": "Access Token",
+        "credentials": {
+          "httpBasicAuth": {
+            "id": "j7do9MUWSgM9LE5M",
+            "name": "SEB Salesforce [PROD]"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "={{ $('Access Token').item.json.instance_url }}/services/data/v66.0/composite",
+          "sendHeaders": true,
+          "headerParameters": {
+            "parameters": [
+              {
+                "name": "Authorization",
+                "value": "=Bearer {{ $('Access Token').item.json.access_token }}"
+              }
+            ]
+          },
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={\n  \"compositeRequest\": [\n    {\n        \"method\": \"GET\",\n        \"url\": \"/services/data/v66.0/query/?q=select+id+from+Contact+where+AccountId+=+'{{ $json.compositeResponse[0].body.records[0].Id }}'\",\n        \"referenceId\":\"contactRef\"\n    },\n    { \n      \"method\": \"POST\",\n      \"url\": \"/services/data/v66.0/sobjects/Case\",\n      \"httpHeaders\": { \n                        \"Sforce-Auto-Assign\": \"FALSE\" \n      },\n      \"referenceId\": \"refCase\",\n      \"body\": {\n        \"RecordType\": { \"Name\": \"Open Case\" },\n        \"Genesys_Origin__c\": true,\n        \"AccountId\": \"{{ $json.compositeResponse[0].body.records[0].Id }}\",\n        \"ContactId\": \"@{contactRef.records[0].Id}\",\n        \"Origin\": \"{{ $('Edit Fields7').item.json.Origin }}\",\n        \"Type\": \"{{ $('Edit Fields7').item.json.Type }}\",\n        \"Classification__c\": \"{{ $('Edit Fields7').item.json.Classification__c }}\",\n        \"Category__c\": \"{{ $('Edit Fields7').item.json.Category__c }}\",\n        \"Sub_Category_1__c\": \"{{ $('Edit Fields7').item.json.Sub_Category_1__c }}\",\n        \"Station__c\": \"{{ $('Edit Fields7').item.json.Station__c }}\",\n        \"Region__c\": \"{{ $('Edit Fields7').item.json.Region__c }}\",\n        \"Status\": \"{{ $('Edit Fields7').item.json.Status }}\",\n        \"Resolution_Detail__c\": \"{{ $('Edit Fields7').item.json.Resolution_Detail__c }}\",\n        \"Description\": \"{{ $('Edit Fields7').item.json.Description }} {{ $('When Executed by Another Workflow').item.json.contract_account_number }}\",\n        \"Incident_Address__c\": \"{{ $('Edit Fields7').item.json.Incident_Address__c }}\",\n        \"SuppliedEmail\": \"{{ $json.compositeResponse[0].body.records[0].SEBC_Email_1__c }}\",\n        \"SuppliedName\": \"{{ $('Edit Fields7').item.json.SuppliedName }}\",\n        \"SuppliedPhone\": \"{{ $('Edit Fields7').item.json.SuppliedPhone }}\"\n      }\n    },\n    {\n      \"method\": \"GET\",\n      \"url\": \"/services/data/v66.0/sobjects/Case/@{refCase.id}?fields=CaseNumber\",\n      \"referenceId\": \"refCaseDetail\"\n    }\n  ]\n}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.4,
+        "position": [
+          896,
+          1056
+        ],
+        "id": "56737f49-e49d-4b7f-ba35-5296e67f61da",
+        "name": "Create Case"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "={{ $('Access Token').item.json.instance_url }}/services/data/v66.0/composite",
+          "sendHeaders": true,
+          "headerParameters": {
+            "parameters": [
+              {
+                "name": "Authorization",
+                "value": "=Bearer {{ $('Access Token').item.json.access_token }}"
+              }
+            ]
+          },
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={ \n  \"compositeRequest\": [ \n    { \n      \"method\": \"POST\", \n      \"url\": \"/services/data/v66.0/sobjects/Account\", \n      \"referenceId\": \"refAccount\", \n      \"body\": { \n        \"LastName\" : \"{{ $('Edit Fields7').item.json.SuppliedName }}\", \n        \"RecordType\": { \n                        \"Name\": \"{{ $('Edit Fields7').item.json.recordtype }}\" \n                  },  \n        \"SEBC_Mobile_1__c\" : \"{{ $('Edit Fields7').item.json.SuppliedPhone }}\"\n      }\n    }\n  ]\n}\n",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.4,
+        "position": [
+          704,
+          1392
+        ],
+        "id": "bf25bd7e-9436-4b16-af58-3bff4a991668",
+        "name": "Create Account"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "e242d814-e1c1-4a55-9440-8c63846dcdd9",
+                "name": "Case ID",
+                "value": "={{ $('Create Case2').item.json.compositeResponse[2].body.CaseNumber }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1232,
+          1392
+        ],
+        "id": "e3e5718f-b60d-425e-b415-3c65205968b2",
+        "name": "Edit Fields8"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "={{ $('Access Token').item.json.instance_url }}/services/data/v66.0/composite",
+          "sendHeaders": true,
+          "headerParameters": {
+            "parameters": [
+              {
+                "name": "Authorization",
+                "value": "=Bearer {{ $('Access Token').item.json.access_token }}"
+              }
+            ]
+          },
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={\n  \"compositeRequest\": [\n    {\n      \"method\": \"GET\",\n      \"url\": \"/services/data/v66.0/query/?q=SELECT+Id,+PersonEmail,+PersonMobilePhone,+NRIC_Passport_No__pc,+SEBC_Email_1__c,+SEBC_Email_2__c,+SEBC_Email_3__c,+SEBC_Mobile_1__c,+SEBC_Mobile_2__c,+SEBC_Mobile_3__c,+Special_Customer__pc+FROM+Account+WHERE+SEBC_Mobile_1__c+=+'{{ $('Edit Fields7').item.json.SuppliedPhone }}'+order+by+createddate+asc+limit+1\",\n      \"referenceId\": \"acc\"\n    }\n  ]\n}\n",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.4,
+        "position": [
+          704,
+          1056
+        ],
+        "id": "0fb91386-1f98-4c48-916f-4a93c9d1b34c",
+        "name": "Check Account1"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "={{ $('Access Token').item.json.instance_url }}/services/data/v66.0/composite",
+          "sendHeaders": true,
+          "headerParameters": {
+            "parameters": [
+              {
+                "name": "Authorization",
+                "value": "=Bearer {{ $('Access Token').item.json.access_token }}"
+              }
+            ]
+          },
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={\n  \"compositeRequest\": [\n    {\n        \"method\": \"GET\",\n        \"url\": \"/services/data/v66.0/query/?q=select+id+from+Contact+where+AccountId+=+'{{ $json.compositeResponse[0].body.id }}'\",\n        \"referenceId\":\"contactRef\"\n    },\n    { \n      \"method\": \"POST\",\n      \"url\": \"/services/data/v66.0/sobjects/Case\",\n      \"httpHeaders\": { \n                        \"Sforce-Auto-Assign\": \"FALSE\" \n      },\n      \"referenceId\": \"refCase\",\n      \"body\": {\n        \"RecordType\": { \"Name\": \"Open Case\" },\n        \"Genesys_Origin__c\": true,\n        \"AccountId\": \"{{ $json.compositeResponse[0].body.id }}\",\n        \"ContactId\": \"@{contactRef.records[0].Id}\",\n        \"Origin\": \"{{ $('Edit Fields7').item.json.Origin }}\",\n        \"Type\": \"{{ $('Edit Fields7').item.json.Type }}\",\n        \"Classification__c\": \"{{ $('Edit Fields7').item.json.Classification__c }}\",\n        \"Category__c\": \"{{ $('Edit Fields7').item.json.Category__c }}\",\n        \"Sub_Category_1__c\": \"{{ $('Edit Fields7').item.json.Sub_Category_1__c }}\",\n        \"Station__c\": \"{{ $('Edit Fields7').item.json.Station__c }}\",\n        \"Region__c\": \"{{ $('Edit Fields7').item.json.Region__c }}\",\n        \"Status\": \"{{ $('Edit Fields7').item.json.Status }}\",\n        \"Resolution_Detail__c\": \"{{ $('Edit Fields7').item.json.Resolution_Detail__c }}\",\n        \"Description\": \"{{ $('Edit Fields7').item.json.Description }}\",\n        \"Incident_Address__c\": \"{{ $('Edit Fields7').item.json.Incident_Address__c }}\",\n        \"SuppliedEmail\": \"{{ $('Edit Fields7').item.json.SEBC_Email }}\",\n        \"SuppliedName\": \"{{ $('Edit Fields7').item.json.SuppliedName }}\",\n        \"SuppliedPhone\": \"{{ $('Edit Fields7').item.json.SuppliedPhone }}\"\n      }\n    },\n    {\n      \"method\": \"GET\",\n      \"url\": \"/services/data/v66.0/sobjects/Case/@{refCase.id}?fields=CaseNumber\",\n      \"referenceId\": \"refCaseDetail\"\n    }\n  ]\n}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.4,
+        "position": [
+          896,
+          1392
+        ],
+        "id": "08115938-36be-4416-9bc2-f69d14345170",
+        "name": "Create Case2"
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "f9b36cc5-9b8f-45a3-b114-53b724e9133d",
+                "leftValue": "={{ $('Edit Fields7').item.json.SuppliedPhone }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "string",
+                  "operation": "empty",
+                  "singleValue": true
+                }
+              },
+              {
+                "id": "049d7f4f-b7ab-4b39-9cde-e68ea8ea96f3",
+                "leftValue": "={{ $('Edit Fields7').item.json.SuppliedPhone }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "string",
+                  "operation": "notExists",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "or"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          464,
+          880
+        ],
+        "id": "190fc691-c437-4789-b54c-02fa2f33c0f1",
+        "name": "If"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "e242d814-e1c1-4a55-9440-8c63846dcdd9",
+                "name": "Case ID",
+                "value": "=Before we proceed, I would need your phone number. Could you please provide it?",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          704,
+          752
+        ],
+        "id": "3e475a5b-1b93-4218-92c9-db8993cb1283",
+        "name": "Edit Fields"
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "f9b36cc5-9b8f-45a3-b114-53b724e9133d",
+                "leftValue": "={{ $('Edit Fields7').item.json.SuppliedName }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "string",
+                  "operation": "empty",
+                  "singleValue": true
+                }
+              },
+              {
+                "id": "049d7f4f-b7ab-4b39-9cde-e68ea8ea96f3",
+                "leftValue": "={{ $('Edit Fields7').item.json.SuppliedName }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "string",
+                  "operation": "notExists",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "or"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          304,
+          1248
+        ],
+        "id": "eaa1e1cb-ef2e-4a4d-be11-061f77724733",
+        "name": "If1"
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "f9b36cc5-9b8f-45a3-b114-53b724e9133d",
+                "leftValue": "={{ $('Edit Fields7').item.json.SuppliedPhone }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "string",
+                  "operation": "empty",
+                  "singleValue": true
+                }
+              },
+              {
+                "id": "049d7f4f-b7ab-4b39-9cde-e68ea8ea96f3",
+                "leftValue": "={{ $('Edit Fields7').item.json.SuppliedPhone }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "string",
+                  "operation": "notExists",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "or"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          480,
+          1376
+        ],
+        "id": "30a3c196-900f-4184-b541-a2bf7fa1dbb1",
+        "name": "If2"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "e242d814-e1c1-4a55-9440-8c63846dcdd9",
+                "name": "Case ID",
+                "value": "=Before we proceed, I would need your name. Could you please provide it?",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          480,
+          1232
+        ],
+        "id": "77462e95-e22a-40bd-b4ce-aa025a15b878",
+        "name": "Edit Fields1"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "e242d814-e1c1-4a55-9440-8c63846dcdd9",
+                "name": "Case ID",
+                "value": "=Before we proceed, I would need your mobile phone. Could you please provide it?",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          704,
+          1232
+        ],
+        "id": "1ba3b945-b1e4-416d-b161-1dd6585bb129",
+        "name": "Edit Fields2"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "=https://api.apse1.pure.cloud/api/v2/conversations/messages/{{ $('Edit Fields7').item.json.genesysIntegrationId }}/inbound/open/message",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "oAuth2Api",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={\n  \"channel\": {\n    \"from\": {\n      \"firstName\": \"{{ $('When Executed by Another Workflow').item.json.customerName }}\",\n      \"idType\": \"Phone\",\n      \"id\": \"+{{ $('When Executed by Another Workflow').item.json.mobilePhone }}\"\n    },\n    \"time\": \"{{ $now.setZone('Asia/Kuala_Lumpur') }}\"\n  },\n  \"text\": \"You have received a case from Carina, http://sebcrm.my.salesforce.com/{{ $json.compositeResponse[2].body.Id }}\"\n}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.4,
+        "position": [
+          1056,
+          1392
+        ],
+        "id": "bebc73ff-c33b-4482-b499-91c9aadbdb76",
+        "name": "HTTP Request",
+        "credentials": {
+          "oAuth2Api": {
+            "id": "SmLhQRyzR24DxoQE",
+            "name": "SEB PROD ClientCred"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "=https://api.apse1.pure.cloud/api/v2/conversations/messages/{{ $('Edit Fields7').item.json.genesysIntegrationId }}/inbound/open/message",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "oAuth2Api",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={\n  \"channel\": {\n    \"from\": {\n      \"firstName\": \"{{ $('When Executed by Another Workflow').item.json.customerName }}\",\n      \"idType\": \"Phone\",\n      \"id\": \"+{{ $('When Executed by Another Workflow').item.json.mobilePhone }}\"\n    },\n    \"time\": \"{{ $now.setZone('Asia/Kuala_Lumpur') }}\"\n  },\n  \"text\": \"You have received a case from Carina, http://sebcrm.my.salesforce.com/{{ $json.compositeResponse[2].body.Id }}\"\n}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.4,
+        "position": [
+          1056,
+          1056
+        ],
+        "id": "71f20b38-2df3-4551-8a46-132addfda0b4",
+        "name": "HTTP Request1",
+        "credentials": {
+          "oAuth2Api": {
+            "id": "SmLhQRyzR24DxoQE",
+            "name": "SEB PROD ClientCred"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "={{ $('Access Token').item.json.instance_url }}/services/data/v66.0/composite",
+          "sendHeaders": true,
+          "headerParameters": {
+            "parameters": [
+              {
+                "name": "Authorization",
+                "value": "=Bearer {{ $('Access Token').item.json.access_token }}"
+              }
+            ]
+          },
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={\n  \"compositeRequest\": [\n    {\n      \"method\": \"GET\",\n      \"url\": \"/services/data/v66.0/query/?q=SELECT+Id,+Type__c,+Push_Message__c,+Area__c,+Station__c,+Unplanned_Restoration_Date__c,+Scheduled_Maintenance_Start_Date__c,+Causes__c,+Scheduled_Maintenance_End_Date__c+FROM+Announcement__c+WHERE+Station__c+=+'{{ $('Edit Fields7').item.json.Station__c }}'+AND+(DAY_ONLY(convertTimezone(Scheduled_Maintenance_Start_Date__c))+>=+{{ $now.setZone('Asia/Kuala_Lumpur').toFormat('yyyy-MM-dd') }}+OR+Push_Date__c+>=+TODAY)+order+by+Scheduled_Maintenance_Start_Date__c+asc\",\n      \"referenceId\": \"announcements\"\n    }\n  ]\n}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.4,
+        "position": [
+          304,
+          1984
+        ],
+        "id": "488121a2-e0d9-4929-be35-2e57e00b9635",
+        "name": "Outage Announcement"
+      },
+      {
+        "parameters": {
+          "fieldToSplitOut": "compositeResponse[0].body.records",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.splitOut",
+        "typeVersion": 1,
+        "position": [
+          848,
+          2048
+        ],
+        "id": "92efa01c-012f-43ee-9527-5d0b34cea1dd",
+        "name": "Split Out"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "95f2f20e-134b-4451-925e-5f57c20061ff",
+                "name": "Type",
+                "value": "={{ $json.Type__c }}",
+                "type": "string"
+              },
+              {
+                "id": "9283f8c5-823c-412c-9098-c717c6b97d0a",
+                "name": "Push Message",
+                "value": "={{ $json.Push_Message__c }}",
+                "type": "string"
+              },
+              {
+                "id": "c6ed51b3-6c05-4a86-bcdb-7ecab718c82a",
+                "name": "Area",
+                "value": "={{ $json.Area__c }}",
+                "type": "string"
+              },
+              {
+                "id": "0c6012a8-3e0d-4727-9448-69f6d1467e1b",
+                "name": "Station",
+                "value": "={{ $json.Station__c }}",
+                "type": "string"
+              },
+              {
+                "id": "343f1531-e7ba-4dc5-ac92-0ab5b5b4dd2b",
+                "name": "Unplanned_Restoration_Date",
+                "value": "={{ DateTime.fromISO($json.Unplanned_Restoration_Date__c).setZone('Asia/Kuala_Lumpur').toFormat('yyyy-MM-dd HH:mm:ss') }}",
+                "type": "string"
+              },
+              {
+                "id": "2aed5049-f648-4275-8a65-b809cea897c5",
+                "name": "Scheduled_Maintenance_Start_Date",
+                "value": "={{ DateTime.fromISO($json.Scheduled_Maintenance_Start_Date__c).setZone('Asia/Kuala_Lumpur').toFormat('yyyy-MM-dd HH:mm:ss') }}",
+                "type": "string"
+              },
+              {
+                "id": "20f83583-847b-491d-8eaf-5e229262a6f9",
+                "name": "Scheduled_Maintenance_End_Date",
+                "value": "={{ DateTime.fromISO($json.Scheduled_Maintenance_End_Date__c).setZone('Asia/Kuala_Lumpur').toFormat('yyyy-MM-dd HH:mm:ss') }}",
+                "type": "string"
+              },
+              {
+                "id": "df6faeb5-8a8b-458e-96a2-71bffcd64d9b",
+                "name": "Causes",
+                "value": "={{ $json.Causes__c }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1088,
+          2048
+        ],
+        "id": "c2259c4d-44d4-4af9-9a4a-1e2c2964b442",
+        "name": "Edit Fields4"
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "f9b36cc5-9b8f-45a3-b114-53b724e9133d",
+                "leftValue": "={{ $json.compositeResponse[0].body.records }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "array",
+                  "operation": "empty",
+                  "singleValue": true
+                }
+              },
+              {
+                "id": "049d7f4f-b7ab-4b39-9cde-e68ea8ea96f3",
+                "leftValue": "={{ $json.compositeResponse[0].body.records }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "array",
+                  "operation": "notExists",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "or"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          528,
+          1984
+        ],
+        "id": "5bf315e4-272d-4f81-835e-8a3071eb245a",
+        "name": "If3"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "e242d814-e1c1-4a55-9440-8c63846dcdd9",
+                "name": "Case ID",
+                "value": "=No Outages report in selected Region.",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          848,
+          1904
+        ],
+        "id": "95c9a304-15fa-4b75-81a0-fe71c575c558",
+        "name": "Edit Fields3"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "={{ $('Access Token').item.json.instance_url }}/services/data/v66.0/composite",
+          "sendHeaders": true,
+          "headerParameters": {
+            "parameters": [
+              {
+                "name": "Authorization",
+                "value": "=Bearer {{ $('Access Token').item.json.access_token }}"
+              }
+            ]
+          },
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={\n  \"compositeRequest\": [\n    {\n      \"method\": \"GET\",\n      \"url\": \"/services/data/v66.0/query/?q=SELECT+Id+,+CaseNumber+,+Status+,+Priority+,+Resolution_Detail__c+,+ClosedDate+,+Station__c+,+Region__c+,+Category__c+,+Sub_Category_1__c+,+Summary_Description__c+,+CreatedDate+FROM+Case+WHERE+IsClosed+=+false+AND+(Account.SEBC_Email_1__c+=+'{{ $('Edit Fields7').item.json.SEBC_Email }}'+OR+Account.SEBC_Email_2__c+=+'{{ $('Edit Fields7').item.json.SEBC_Email }}'+OR+Account.SEBC_Email_3__c+=+'{{ $('Edit Fields7').item.json.SEBC_Email }}'+OR+Account.PersonMobilePhone+LIKE+'%25{{ $('Edit Fields7').item.json.SuppliedPhone }}'+OR+Account.SEBC_Mobile_1__c+LIKE+'%25{{ $('Edit Fields7').item.json.SuppliedPhone }}'+OR+Account.SEBC_Mobile_2__c+LIKE+'%25{{ $('Edit Fields7').item.json.SuppliedPhone }}'+OR+Account.SEBC_Mobile_3__c+LIKE+'%25{{ $('Edit Fields7').item.json.SuppliedPhone }}'+)+AND+DAY_ONLY(CreatedDate)+>=+{{ $now.setZone('Asia/Kuala_Lumpur').minus({ months: 3 }).toFormat('yyyy-MM-dd') }}+AND+DAY_ONLY(CreatedDate)+<=+{{ $now.setZone('Asia/Kuala_Lumpur').toFormat('yyyy-MM-dd') }}+order+by+createddate+desc+limit+10\",\n      \"referenceId\": \"cases\"\n    }\n  ]\n}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.4,
+        "position": [
+          304,
+          1680
+        ],
+        "id": "bdb13068-0a2a-4c9e-99dd-3a0f37b46a79",
+        "name": "Case Enquiry"
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "f9b36cc5-9b8f-45a3-b114-53b724e9133d",
+                "leftValue": "={{ $('Edit Fields7').item.json.caseId }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "string",
+                  "operation": "empty",
+                  "singleValue": true
+                }
+              },
+              {
+                "id": "049d7f4f-b7ab-4b39-9cde-e68ea8ea96f3",
+                "leftValue": "={{ $('Edit Fields7').item.json.caseId }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "string",
+                  "operation": "notExists",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "or"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          528,
+          1680
+        ],
+        "id": "a27d6fda-51ad-4142-b330-48ffe4ae25e8",
+        "name": "If4"
+      },
+      {
+        "parameters": {
+          "fieldToSplitOut": "compositeResponse[0].body.records",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.splitOut",
+        "typeVersion": 1,
+        "position": [
+          848,
+          1744
+        ],
+        "id": "057740f7-db8e-4dec-b7df-7ddd44902191",
+        "name": "Split Out1"
+      },
+      {
+        "parameters": {
+          "fieldToSplitOut": "compositeResponse[0].body.records",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.splitOut",
+        "typeVersion": 1,
+        "position": [
+          848,
+          1616
+        ],
+        "id": "c8e57fac-72eb-4e64-80f1-71a40f84045d",
+        "name": "Split Out2"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "a9c82b44-84b8-4ca2-a6de-236712aa7798",
+                "name": "CaseNumber",
+                "value": "={{ $json.CaseNumber }}",
+                "type": "string"
+              },
+              {
+                "id": "943671f2-95f4-4e1d-a9e0-739bcc9fb22d",
+                "name": "CreatedDate",
+                "value": "={{ $json.CreatedDate }}",
+                "type": "string"
+              },
+              {
+                "id": "2b1b19ec-7fbf-4ff8-8632-d1cb1dd77f52",
+                "name": "Category",
+                "value": "={{ $json.Category__c }}",
+                "type": "string"
+              },
+              {
+                "id": "dd82394c-5975-4780-aed2-c45688963423",
+                "name": "SubCategory",
+                "value": "={{ $json.Sub_Category_1__c }}",
+                "type": "string"
+              },
+              {
+                "id": "2f3992db-18c9-4e45-b267-ed94acb698dd",
+                "name": "Status",
+                "value": "={{ $json.Status }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1088,
+          1616
+        ],
+        "id": "893836b5-7680-4aeb-b0a4-9fc1f52ad75c",
+        "name": "Edit Fields10"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "e242d814-e1c1-4a55-9440-8c63846dcdd9",
+                "name": "Case ID",
+                "value": "=Which cases would you like to check on?\n{{ JSON.stringify($json.data) }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1520,
+          1616
+        ],
+        "id": "eac87549-49fa-429b-ae09-fd60aa0c64e3",
+        "name": "Edit Fields11"
+      },
+      {
+        "parameters": {
+          "aggregate": "aggregateAllItemData",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.aggregate",
+        "typeVersion": 1,
+        "position": [
+          1312,
+          1616
+        ],
+        "id": "5d138107-6e59-4551-b868-940236ab6226",
+        "name": "Aggregate"
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "10303c45-6aef-47e0-8fc7-ec2e02a86ea4",
+                "leftValue": "={{ $json.CaseNumber }}",
+                "rightValue": "={{ $('Edit Fields7').item.json.caseId }}",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals"
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.filter",
+        "typeVersion": 2.3,
+        "position": [
+          1088,
+          1744
+        ],
+        "id": "1905f968-3e5c-4dea-b508-8bfe06b2b357",
+        "name": "Filter"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "e242d814-e1c1-4a55-9440-8c63846dcdd9",
+                "name": "Status",
+                "value": "={{ $json.Status }}",
+                "type": "string"
+              },
+              {
+                "id": "ca51be72-c0b6-41bf-a67a-81652d6db3b8",
+                "name": "Resolution_Detail__c",
+                "value": "={{ $json.Resolution_Detail__c?.trim() || \"We have yet to provide a resolution, we'll get back to you shortly.\" }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1312,
+          1744
+        ],
+        "id": "1383f062-19be-422d-a408-5fe621342ffe",
+        "name": "Edit Fields12"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://sebcrm--full.sandbox.my.salesforce.com/services/oauth2/token",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "httpBasicAuth",
+          "sendHeaders": true,
+          "headerParameters": {
+            "parameters": [
+              {
+                "name": "Authorization",
+                "value": "Basic TXIDbGIlbnRJRDpNeUNsaWVudFNIY3JldA=="
+              }
+            ]
+          },
+          "sendBody": true,
+          "contentType": "form-urlencoded",
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "grant_type",
+                "value": "client_credentials"
+              }
+            ]
+          },
+          "options": {
+            "redirect": {
+              "redirect": {}
+            }
+          }
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.4,
+        "position": [
+          2720,
+          1008
+        ],
+        "id": "875acf1f-b663-4029-8903-bb238a7c5b89",
+        "name": "Access Token1",
+        "credentials": {
+          "httpBasicAuth": {
+            "id": "MScCAMVobwKI1lv4",
+            "name": "SEB Salesforce DEV"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "binaryToPropery",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.extractFromFile",
+        "typeVersion": 1.1,
+        "position": [
+          2496,
+          1008
+        ],
+        "id": "2d0a6a0a-b021-4b7d-a63a-3cb4e79802fa",
+        "name": "Extract from File1"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "={{ $('Access Token1').item.json.instance_url }}/services/data/v66.0/composite",
+          "sendHeaders": true,
+          "headerParameters": {
+            "parameters": [
+              {
+                "name": "Authorization",
+                "value": "=Bearer {{ $('Access Token1').item.json.access_token }}"
+              }
+            ]
+          },
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={\n  \"allOrNone\": true,\n  \"compositeRequest\": [\n    {\n      \"method\": \"POST\",\n      \"url\": \"/services/data/v66.0/sobjects/ContentVersion\",\n      \"referenceId\": \"file1\",\n      \"body\": {\n        \"Title\": \"{{ $('Download Attachment1').item.json.normalizedMessage.content[0].attachment.filename }}\",\n        \"PathOnClient\": \"{{ $('Download Attachment1').item.json.normalizedMessage.content[0].attachment.filename }}\",\n        \"VersionData\": \"{{ $('Extract from File1').item.json.data }}\"\n      }\n    },\n    {\n      \"method\": \"GET\",\n      \"url\": \"/services/data/v66.0/query/?q=select+id,+ContentDocumentId+from+ContentVersion+where+id='@{file1.id}'\",\n      \"referenceId\": \"contentVersion1\"\n    },\n    {\n      \"method\": \"POST\",\n      \"url\": \"/services/data/v66.0/sobjects/ContentDocumentLink\",\n      \"referenceId\": \"link1\",\n      \"body\": {\n        \"ContentDocumentId\": \"@{contentVersion1.records[0].ContentDocumentId}\",\n        \"LinkedEntityId\": \"{{ $('Create Case').item.json.compositeResponse[2].body.Id }}\",\n        \"ShareType\": \"V\"\n      }\n    }\n  ]\n}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.4,
+        "position": [
+          2944,
+          1008
+        ],
+        "id": "1d0b5997-9dfc-441d-85f3-e1ab6565cb63",
+        "name": "Upload Attachment1"
+      },
+      {
+        "parameters": {
+          "url": "={{ $json.normalizedMessage.content[0].attachment.url }}",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "oAuth2Api",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.4,
+        "position": [
+          2336,
+          1008
+        ],
+        "id": "e89e5710-1a6a-4f98-bb9b-30a544e82ad6",
+        "name": "Download Attachment1",
+        "credentials": {
+          "oAuth2Api": {
+            "id": "mviUHzVp9m9DTHVp",
+            "name": "Sarawak Energy DEV OAuth2"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "url": "=https://api.apse1.pure.cloud/api/v2/conversations/messages/{{ $('When Executed by Another Workflow').item.json.genesysConvId }}",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "oAuth2Api",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.4,
+        "position": [
+          1456,
+          1072
+        ],
+        "id": "98347622-c0d1-4b90-a7c9-069544150b6c",
+        "name": "Get Chat Attachment",
+        "credentials": {
+          "oAuth2Api": {
+            "id": "mviUHzVp9m9DTHVp",
+            "name": "Sarawak Energy DEV OAuth2"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "f40d10ae-6dca-4679-8d14-67296ad333ac",
+                "name": "mediaIDs",
+                "value": "={{ $json.participants[0].messages\n  .filter(m => m.messageMetadata?.content?.some(c => c.contentType === 'Attachment'))\n  .map(m => m.messageId) }}",
+                "type": "array"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1632,
+          1072
+        ],
+        "id": "791b05d1-1ade-4d8a-abc8-986d7d517535",
+        "name": "Edit Fields5"
+      },
+      {
+        "parameters": {
+          "url": "=https://api.apse1.pure.cloud/api/v2/conversations/messages/{{ $json.mediaIDs }}/details",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "oAuth2Api",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.4,
+        "position": [
+          2160,
+          1008
+        ],
+        "id": "61988d2c-e171-41cd-a841-c1d8286616ad",
+        "name": "Get Chat Attachment1",
+        "credentials": {
+          "oAuth2Api": {
+            "id": "mviUHzVp9m9DTHVp",
+            "name": "Sarawak Energy DEV OAuth2"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "fieldToSplitOut": "mediaIDs",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.splitOut",
+        "typeVersion": 1,
+        "position": [
+          2000,
+          1008
+        ],
+        "id": "4de8b8cd-a6ff-492b-a5fb-33178b512887",
+        "name": "Split Out3"
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "945360cc-369f-492a-a7b0-a12c7c6cf342",
+                "leftValue": "={{ $json.mediaIDs }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "array",
+                  "operation": "notEmpty",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          1792,
+          1072
+        ],
+        "id": "b650e3cb-0e90-47ab-b2a1-bf576af42381",
+        "name": "If5"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "e242d814-e1c1-4a55-9440-8c63846dcdd9",
+                "name": "Case ID",
+                "value": "={{ $('Create Case').item.json.compositeResponse[2].body.CaseNumber }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          2000,
+          1136
+        ],
+        "id": "a3d0cba8-89c5-43a2-b5ce-d9e5e2a2091a",
+        "name": "Edit Fields9"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "e242d814-e1c1-4a55-9440-8c63846dcdd9",
+                "name": "Case ID",
+                "value": "={{ $('Create Case').item.json.compositeResponse[2].body.CaseNumber }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          3120,
+          1008
+        ],
+        "id": "8b1fd78e-ec6b-4256-944f-af01eaac2308",
+        "name": "Edit Fields13"
+      },
+      {
+        "parameters": {
+          "rules": {
+            "values": [
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  },
+                  "conditions": [
+                    {
+                      "leftValue": "={{ $('Edit Fields7').item.json.route }}",
+                      "rightValue": "check_account",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals"
+                      },
+                      "id": "0dc7f901-7ddb-4e8e-9a5e-454ea99d3891"
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "check_account"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  },
+                  "conditions": [
+                    {
+                      "id": "d4c66ff1-bc0e-424e-9685-9d438f4aa3bf",
+                      "leftValue": "={{ $('Edit Fields7').item.json.route }}",
+                      "rightValue": "create_case",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "create_case"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  },
+                  "conditions": [
+                    {
+                      "id": "58673390-2d16-43ab-a1c4-1ea9cc75ed57",
+                      "leftValue": "={{ $('Edit Fields7').item.json.route }}",
+                      "rightValue": "create_acc_case",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "create_acc_case"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  },
+                  "conditions": [
+                    {
+                      "id": "af435378-1972-430d-94f4-81dbabcdd4cf",
+                      "leftValue": "={{ $('Edit Fields7').item.json.route }}",
+                      "rightValue": "case_enquiry",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals",
+                        "name": "filter.operator.equals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "case_enquiry"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  },
+                  "conditions": [
+                    {
+                      "id": "0694311f-37f9-459b-99a4-ae9e0ac7e0a4",
+                      "leftValue": "={{ $('Edit Fields7').item.json.route }}",
+                      "rightValue": "outage_announcement",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals",
+                        "name": "filter.operator.equals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "outage_announcement"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.switch",
+        "typeVersion": 3.2,
+        "position": [
+          -288,
+          1200
+        ],
+        "id": "d7bbece5-3f0e-44ff-b8e0-1465240721fe",
+        "name": "Switch"
+      }
+    ],
+    "connections": {
+      "When Executed by Another Workflow": {
+        "main": [
+          [
+            {
+              "node": "Edit Fields7",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Edit Fields7": {
+        "main": [
+          [
+            {
+              "node": "Access Token",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Access Token": {
+        "main": [
+          [
+            {
+              "node": "Switch",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Create Case": {
+        "main": [
+          [
+            {
+              "node": "HTTP Request1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Create Account": {
+        "main": [
+          [
+            {
+              "node": "Create Case2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Check Account1": {
+        "main": [
+          [
+            {
+              "node": "Create Case",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Create Case2": {
+        "main": [
+          [
+            {
+              "node": "HTTP Request",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "If": {
+        "main": [
+          [
+            {
+              "node": "Edit Fields",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Check Account",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "If1": {
+        "main": [
+          [
+            {
+              "node": "Edit Fields1",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "If2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "If2": {
+        "main": [
+          [
+            {
+              "node": "Edit Fields2",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Create Account",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "HTTP Request1": {
+        "main": [
+          [
+            {
+              "node": "Edit Fields6",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "HTTP Request": {
+        "main": [
+          [
+            {
+              "node": "Edit Fields8",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Outage Announcement": {
+        "main": [
+          [
+            {
+              "node": "If3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Split Out": {
+        "main": [
+          [
+            {
+              "node": "Edit Fields4",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "If3": {
+        "main": [
+          [
+            {
+              "node": "Edit Fields3",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Split Out",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Case Enquiry": {
+        "main": [
+          [
+            {
+              "node": "If4",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "If4": {
+        "main": [
+          [
+            {
+              "node": "Split Out2",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Split Out1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Split Out1": {
+        "main": [
+          [
+            {
+              "node": "Filter",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Split Out2": {
+        "main": [
+          [
+            {
+              "node": "Edit Fields10",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Edit Fields10": {
+        "main": [
+          [
+            {
+              "node": "Aggregate",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Aggregate": {
+        "main": [
+          [
+            {
+              "node": "Edit Fields11",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Filter": {
+        "main": [
+          [
+            {
+              "node": "Edit Fields12",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Access Token1": {
+        "main": [
+          [
+            {
+              "node": "Upload Attachment1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Extract from File1": {
+        "main": [
+          [
+            {
+              "node": "Access Token1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Upload Attachment1": {
+        "main": [
+          [
+            {
+              "node": "Edit Fields13",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Download Attachment1": {
+        "main": [
+          [
+            {
+              "node": "Extract from File1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Get Chat Attachment": {
+        "main": [
+          [
+            {
+              "node": "Edit Fields5",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Edit Fields5": {
+        "main": [
+          [
+            {
+              "node": "If5",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Get Chat Attachment1": {
+        "main": [
+          [
+            {
+              "node": "Download Attachment1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Split Out3": {
+        "main": [
+          [
+            {
+              "node": "Get Chat Attachment1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "If5": {
+        "main": [
+          [
+            {
+              "node": "Split Out3",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Edit Fields9",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Switch": {
+        "main": [
+          [
+            {
+              "node": "If",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Check Account1",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "If1",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Case Enquiry",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Outage Announcement",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Reverb KeyAI",
+    "name": "Version 05f0fa36",
+    "description": "",
+    "autosaved": false,
+    "workflowPublishHistory": [
+      {
+        "createdAt": "2026-05-29T02:37:52.716Z",
+        "id": 3242,
+        "workflowId": "uXJ1LmKFGmTUmmdG",
+        "versionId": "05f0fa36-0f6b-46c9-ada3-4873081372ee",
+        "event": "activated",
+        "userId": "5309bc79-8dc9-498f-8b2b-b1e6643ee07a"
+      }
+    ]
+  },
+  "scopes": [
+    "workflow:create",
+    "workflow:delete",
+    "workflow:execute",
+    "workflow:execute-chat",
+    "workflow:list",
+    "workflow:move",
+    "workflow:publish",
+    "workflow:read",
+    "workflow:share",
+    "workflow:unpublish",
+    "workflow:unshare",
+    "workflow:update",
+    "workflow:updateRedactionSetting"
+  ],
+  "checksum": "71ac070555165b66796847c55c01784f1a327cba50d120046dd1bf3349136845"
+}
