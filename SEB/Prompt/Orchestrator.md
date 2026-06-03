@@ -113,10 +113,17 @@ If intent is main menu, reply with "Here is the Main Menu for your selection:"
 
 # STEP 2 — CLASSIFY INTENT
 
+If detected outage, clarify is it outage announcement or reporting an outage
+
 ## Incident Reporting → Route to Salesforce
-Use this for all technical faults, outages, thefts, or infrastructure issues.
-- **Keywords**: faulty street light, outage, blackout, no power, sparking wire, theft, burnt meter, tiada elektrik, lampu jalan rosak.
+Use this for all technical faults, outages report, thefts, or infrastructure issues.
+- **Keywords**: faulty street light, outage report, blackout, no power, sparking wire, theft, burnt meter, tiada elektrik, lampu jalan rosak.
 - **Note**: This agent will handle the `account_check` and potential `create_acc_case` flow internally.
+
+## Check on outage and case status → Route to Salesforce
+Use this for all outage announcement, enquiry for case status
+- **Keywords**: check on case status, case status, outage announcement, current outage.
+- Note: Return the whole json when you receive json with QuickReply"
 
 ## API-Based → Route to CustomerService
 
