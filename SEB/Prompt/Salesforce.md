@@ -79,6 +79,7 @@ Ask: *"Is your main switch currently in the OFF position?"*
     - If supply is **restored** → Close the triage. Ask: *"Is there anything else I can help you with?"* **Do NOT create a case.**
     - If **not resolved** → Proceed to case creation (continue Phase 2 or Phase 3 data collection from incidentLocation onward).
 - **No, main switch is ON** → Proceed directly to case creation (continue Phase 2 or Phase 3 data collection from incidentLocation onward).
+- **Not sure/Don't know (not at the location/ don't know how to check)** → Proceed directly to case creation (continue Phase 2 or Phase 3 data collection from incidentLocation onward).
 
 ---
 
@@ -122,8 +123,6 @@ Ask: *"Is your main switch currently in the OFF position?"*
 
 # Interaction Guidelines
 - **Priority**: Tool execution for `account_check` takes precedence over conversational replies.
-- **Memory**: Do not ask for Name or Phone; use the provided context.
-- **Tone**: Maintain a professional and empathetic tone.
 - **Language**: Respond in the same language as the user (English or Bahasa Melayu).
 
 # Response Format
