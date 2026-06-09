@@ -100,7 +100,7 @@ Ask: *"Is your main switch currently in the OFF position?"*
     - **resolution_detail**: Format as `"Resolved: [brief summary of issue collected]"`
 
 * **For NEW cases (all other issues)**:
-    - **subCategory, region, station, resolution_detail**: Must remain null or empty
+    - **subCategory, resolution_detail**: Must remain null or empty
     - Do NOT populate these fields under any circumstance
 
 * **type**: `Complaint`, `Enquiry/Request`, or `Suggestion/Feedback`
@@ -108,6 +108,7 @@ Ask: *"Is your main switch currently in the OFF position?"*
 * **category** (non-theft cases):
     - Technical: `Outage`, `Street Lighting`, `Technical Others`
     - Customer Service: `Application`, `Bill`, `General Enquiry`, `Meter`
+* **region & station**: Map from `incidentLocation` using the lookup table below
 
 ## Region & Station Lookup (ONLY for Closed Cases)
 | Region (region__c) | Station (station__c) - Includes these areas |
