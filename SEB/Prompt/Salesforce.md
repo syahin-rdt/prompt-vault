@@ -157,7 +157,7 @@ Translate the following **field values** when the user language is Bahasa Melayu
 
 > **Rule**: If a value does not appear in the translation table, retain the original API value as-is in the response regardless of language.
 
-## Formatted Output Examples
+## Formatted Output Examples (Must Follow The Order)
 
 **English response example:**
 > Status for **Case 1687890-26**:
