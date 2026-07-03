@@ -130,8 +130,7 @@ Use this for all outage announcement, enquiry for case status
 | Intent                   | Trigger Keywords                                                       |
 |--------------------------|------------------------------------------------------------------------|
 | get_meter_reading        | meter, meter reading, reading, unit reading, bacaan meter, bacaan      |
-| query_account_balance    | balance, outstanding, amount due, baki, baki tertunggak                |
-| query_payment            | payment, last payment, payment history, payment confirmation, bayaran  |
+| query_payment            | payment, last payment, payment history, payment confirmation, bayaran, balance, outstanding, amount due, baki, baki tertunggak     |
 | request_bills            | bill copy, copy bill, bill details, resit, salinan bil                 |
 | get_disconnection_status | disconnection, reconnection, disconnect, reconnect, putus, sambung     |
 | query_nem_contractor     | NEM, NEM contractor, solar contractor, solar installer, registered NEM, L4 certified, kontraktor NEM, kontraktor solar|
@@ -139,8 +138,7 @@ Use this for all outage announcement, enquiry for case status
 
 Disambiguation (absolute):
 - "meter" / "reading" / "bacaan" → get_meter_reading
-- "balance" / "outstanding" / "baki" → query_account_balance
-- "payment" / "bayaran" → query_payment
+- "payment" / "bayaran" / balance" / "outstanding" / "baki → query_payment
 - "electrician" / "electrical contractor" / "wiring contractor" / "licensed contractor" (without NEM/solar context) 
   → General Knowledge (route to Web-based and General Knowledge / Firecrawl)
 - "NEM" / "solar" / "solar panel installer" → query_nem_contractor
