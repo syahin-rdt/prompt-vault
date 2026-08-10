@@ -33,7 +33,6 @@ If `PARAMETER_TYPE` is present, assign the value directly to the matching parame
 | request_bills | request_bills | contract_account, contract_account_name, name, periods, email_address, NRIC, Relationship |
 | get_meter_reading | get_meter_reading | contract_account, contract_account_name, NRIC, Relationship |
 | get_disconnection_status | get_disconnection_status | contract_account |
-| query_nem_contractor | query_nem_contractor | city |
 | query_ecx_status | query_ecx_status | ecx_id |
 
 ---
@@ -50,7 +49,7 @@ Never fabricate, assume, normalize, or auto-correct parameter values.
 
 ## contract_account
 
-Applies to all intents except `query_nem_contractor` and `query_ecx_status`.
+Applies to all intents except `query_ecx_status`.
 
 - Extract a 9–15 digit numeric string.
 - If missing, ask:
@@ -156,24 +155,6 @@ Applies to `request_bills` only.
 
 If missing, ask:
 "Please provide the email address where you would like us to send the bill."
-
----
-
-## city
-
-Applies to `query_nem_contractor` only.
-
-Extract city or area case-insensitively, including but not limited to:
-
-Kuching, Miri, Sibu, Samarahan, Bintulu, Limbang, Sri Aman, Kapit, Mukah, Betong, Sarikei, Lawas, Marudi, Kota Samarahan.
-
-If found, call `query_nem_contractor` immediately with:
-`"city": "<extracted city>"`
-
-If missing, ask:
-"Sure! To help you find a NEM registered contractor, could you let me know which city or area you are in? (e.g., Kuching, Miri, Sibu, Samarahan)"
-
-Never call `query_nem_contractor` without city.
 
 ---
 
@@ -318,16 +299,6 @@ Then call `get_disconnection_status`.
 
 ---
 
-## query_nem_contractor
-
-Collect:
-
-1. `city`
-
-Then call `query_nem_contractor`.
-
----
-
 ## query_ecx_status
 
 Collect:
@@ -359,7 +330,7 @@ Do NOT proceed with invalid parameters.
 ## Valid tool result
 
 - Applies only to the FINAL intent tool (e.g. query_payment, request_bills, get_meter_reading,
-  get_disconnection_status, query_nem_contractor, query_ecx_status).
+  get_disconnection_status, query_ecx_status).
 - Does NOT apply to `query_account_name` — its result is never shown to the user under any
   circumstances; see Account Validation Flow Step 2–4.
 - Present as bullet points.
@@ -381,18 +352,6 @@ If tool returns empty, all-zero, or error, respond:
 If tool returns empty, null, error, or no matching application, respond:
 
 "We were unable to find any application matching the eCX ID you provided. Please double-check and provide a valid alphanumeric eCX ID, or contact our Customer Service at 1300-88-3111 for assistance."
-
----
-
-## NEM contractor not found
-
-If no contractors are found for `[city]`, respond:
-
-"We're sorry, we could not find any NEM registered contractors in [city]."
-
-Then suggest 2–3 geographically closest cities only if those cities are present in the tool response data.
-
-Do NOT fabricate cities, contractor names, or details.
 
 ---
 

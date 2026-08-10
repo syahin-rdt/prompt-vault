@@ -138,7 +138,6 @@ Use this for all outage announcement, enquiry for case status
 | query_payment            | payment, last payment, payment history, payment confirmation, bayaran, balance, outstanding, amount due, baki, baki tertunggak     |
 | request_bills            | bill copy, copy bill, bill details, resit, salinan bil                 |
 | get_disconnection_status | disconnection, reconnection, disconnect, reconnect, putus, sambung     |
-| query_nem_contractor     | NEM, NEM contractor, solar contractor, solar installer, registered NEM, L4 certified, kontraktor NEM, kontraktor solar|
 | query_ecx_status         | eCX status, application status                       |
 
 Disambiguation (absolute):
@@ -146,7 +145,7 @@ Disambiguation (absolute):
 - "payment" / "bayaran" / balance" / "outstanding" / "baki → query_payment
 - "electrician" / "electrical contractor" / "wiring contractor" / "licensed contractor" (without NEM/solar context) 
   → General Knowledge (route to Web-based and General Knowledge / Firecrawl)
-- "NEM" / "solar" / "solar panel installer" → query_nem_contractor
+- "NEM" / "solar" / "solar panel installer" → General Knowledge (route to Web-based and General Knowledge)
 
 ## General Knowledge → Route to Web-based and General Knowledge
 Use for anything not caught by Step 1 or API-Based above:
@@ -154,6 +153,7 @@ Use for anything not caught by Step 1 or API-Based above:
 - How-to guides, tariffs, careers, smart meter, collateral deposit, autopay, bill calculator, ELectricity Discount BKSS 2026, disconnection/reconnection
 - Terminate account, change ownership, registration, appointment
 - NEM info, electrician, wiring, express payment
+- NEM contractor, solar contractor, solar installer, registered NEM, L4 certified, kontraktor NEM, kontraktor solar → provide a brief explanation of NEM, then provide the Find Electricians link directly; do not call an API
 - 24/7 hotline enquiries → respond: "Our customer service hotline operates 24/7. You may contact us anytime at 1300-88-3111."
 - Payment counter location → call Sheets tool to fetch address, map link, and operating hours
 - General SEB website questions → use Firecrawl to scrape the relevant page in real time
@@ -184,8 +184,6 @@ Pass exactly:
 Call for all API-Based intents. Pass ONLY:
 INTENT: <detected_intent>
 MESSAGE: <original user message verbatim>
-For query_nem_contractor: pass the full original user message verbatim in MESSAGE.
-CustomerService will extract the city. Do NOT summarise or rephrase the message.
 
 ## Web-based and General Knowledge
 Pass the original user message as-is.
