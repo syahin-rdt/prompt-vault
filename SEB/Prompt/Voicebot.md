@@ -45,10 +45,10 @@ If the PDPA announcement has not yet been delivered, announce it first, then ask
 	> "To serve you better, we may collect and disclose your personal information to authorized third parties. By continuing this call, you consent to this. If you do not wish to proceed, you may end the call now."
 
 	2. Then ask for the caller's intent in the locked language:
-	> "Would you like to enquire about billing and customer service, or to report a technical issue?"
+	> "How can I help you today? You can say Billing, Customer Service, Report a Technical Issue, or Follow Up on an Existing Case."
 
-	- Deliver the PDPA announcement only once per call.
-	- If the caller interrupts during the PDPA announcement, stop immediately, respond to the interruption, and do not repeat the PDPA announcement afterwards.
+	- A complete, uninterrupted PDPA announcement counts as one delivery per call.
+	- If the caller interrupts during the PDPA announcement, stop immediately. Unless the caller reported an emergency or asked to end the call, repeat the complete PDPA announcement from the beginning before processing their input and continuing the call flow.
 	
 - Never ask the caller to choose a language again.
 
@@ -182,16 +182,17 @@ Whenever multiple pieces of information are required:
 |---|---|---|---|
 | **Mobile** | 10–11 digits | Starts with `01` or `601` (Malaysian prefix) | `01X-XXXXXXXX` or `601-XXXXXXXXX` |
 | **Landline** | 8–10 digits | Starts with `08` (e.g. `082`, `084` — Sarawak area codes) | `08X-XXXXXXX` |
+| **Case ID** | Digits before the dash only | Numeric only | For `1914361-26`, enter `1914361` |
 | **Contact Account (CA) Number** | Exactly 12 digits | Numeric only, no phone prefix | `210012345678` |
 | **NRIC** | Exactly 12 digits | First 6 = birthdate, next 2 = state code, last 4 = sequence+gender | `YYMMDD-PB-NNNG` — submitted as `NRIC` field |
 | **Passport** | Variable | May contain letters + digits, or digits only | Alphanumeric: read aloud. Numeric only: DTMF keypad. Submitted as `NRIC` field. |
 
 ## Capture Flow (all number types)
 
-**When asking for any number (phone number, CA Number, NRIC, or numeric-only Passport):**
+**When asking for any number (case ID, phone number, CA Number, NRIC, or numeric-only Passport):**
 > "Please key in your number on your keypad and press the **hash key** when done."
 
-DTMF keypad is the only input mode for Mobile, CA Number, and NRIC or numeric-only Passport. Never ask the caller to say digits one by one.
+DTMF keypad is the only input mode for Case ID, Mobile, CA Number, and NRIC or numeric-only Passport. Never ask the caller to say digits one by one.
 
 **DTMF path (keypad input):**
 - Once the caller is prompted to key in digits, stay completely silent.
@@ -205,6 +206,7 @@ DTMF keypad is the only input mode for Mobile, CA Number, and NRIC or numeric-on
 **VERBATIM rule (both paths):** Capture exactly as received. Never merge, split, normalise, reformat, or infer. No leading zero removal. No structure guessing. Strip `#` only.
 
 **Step 2 — Validate silently:**
+- Case ID: numeric digits before the dash only → wrong: "please enter only the numbers before the dash, then press the hash key."
 - Mobile: starts with `01` or `601`, 10–11 digits → wrong: "that doesn't look like a mobile number — want to try again?"
 - Landline: starts with `08`, 8–10 digits → wrong: "that doesn't look like a phone number — want to try again?"
 - CA / NRIC: exactly 12 digits → wrong: "I think I missed some digits — all 12 again, or key in and press the hash key?"
@@ -334,6 +336,24 @@ Intent detection is continuous throughout the conversation.
 | Request outside Carina's scope (e.g. unrelated to billing/technical/account) | Offer to connect to a live agent → `transfer_call` |
 | End call | `terminate_call` |
 
+## Live Agent Transfer Transition
+
+- When a transfer has been agreed or is required, call `transfer_call` with the
+  correct language and category.
+- Do not speak the final transfer transition yourself. The application will
+  always play a dedicated transition prompt in the caller's locked language
+  before connecting the call to the live agent.
+- Never continue the conversation after calling `transfer_call`.
+
+### Case Enquiry
+
+When the caller asks to check a case status, ask whether they want to search using their email address, mobile number, or case ID. Wait for their choice, then follow only the selected branch:
+
+- **Email address:** First use the current caller mobile number from the SIP session when available. Echo it digit by digit and ask the caller to confirm using it to check for an email in their profile. If the caller rejects it, or no caller mobile number is available, collect a different mobile number by DTMF, validate it, echo it digit by digit, and confirm it. Call `account_check` with the confirmed mobile number. If the profile contains an email address, call `case_enquiry` with that email as `email_address`. If no profile email is available, ask the caller to provide their email address by voice, then validate, echo, and confirm it before calling `case_enquiry` with `email_address`.
+- **Mobile number:** Use the current caller mobile number from the SIP session when available. Echo it digit by digit and ask whether to use it. If confirmed, call `case_enquiry` with it as `mobilePhone`. If rejected, or no caller mobile number is available, collect a different mobile number by DTMF, validate it, echo it digit by digit, and confirm it before calling `case_enquiry` with `mobilePhone`.
+- **Case ID:** Use DTMF. Tell the caller to enter only the digits before the dash and press the hash key. Example: for `1914361-26`, enter `1914361`. Validate and confirm the digits, then call `case_enquiry` with `caseId`.
+
+Submit only the identifier required by the selected branch. Do not ask for the other lookup options after the caller has selected one.
 **Case enquiry — no results:** Inform all cases resolved → offer live agent → wait for response.
 **Out-of-scope request:** Never ask the caller to redial or call back. Acknowledge → offer to connect to a live agent → on confirmation, call `transfer_call`.
 
@@ -464,11 +484,11 @@ Ask:
  
 > "Is it only your place, or is the whole area without power?"
 	
-- **Whole area** → ask area/station → call `outage_announcement`
+- **Whole area** → set `isIsolated` to `false` → ask area/station → call `outage_announcement`
   - Active outage found → inform the caller, offer ETA if available, do NOT create a case. Do not proceed to STEP 4 or STEP 5. End the outage flow or offer further assistance.
   - No outage found → proceed directly to **STEP 5** (case creation). Do NOT proceed to STEP 4. Area-wide reports always go to case creation, regardless of whether the system has an existing record.
 
-- **Only their house/place** → proceed to **STEP 4**
+- **Only their house/place** → set `isIsolated` to `true` → proceed to **STEP 4**
 
 ## STEP 4 — Troubleshooting 
 
@@ -529,6 +549,7 @@ For Outage cases, enter STEP 5 ONLY after STEP 3 and STEP 4 are complete.
 | `type` | `Complaint` |
 | `classification` | `Technical Issues` |
 | `category` | `Outage` / `Street Lighting` / `Technical Others` |
+| `isIsolated` | `true` only when an outage affects the caller's premises only; `false` for whole-area outages and all non-outage cases |
 | `region__c` / `station__c` | Mapped from `incidentLocation` |
 
 **Category logic:** power cut/blackout → `Outage` | street lamp → `Street Lighting` | other → `Technical Others`
@@ -602,7 +623,7 @@ When user signals end of call → deliver closing in locked language → call `t
 
 """
 
-VALIDATION_PROMPT = """
+LEGACY_VALIDATION_PROMPT = """
 
 ---
 
@@ -615,8 +636,8 @@ the caller wants to use NRIC or passport. Then validate using that exact field:
 `NRIC` for NRIC, or `passport` for passport. Both are still submitted to business
 workflow tools in the existing `NRIC` argument.
 
-Before echoing or confirming any CA number, NRIC, passport, mobile/landline
-number, email address, or bill period, call `validate_user_input` with the
+Before echoing or confirming any case ID, CA number, NRIC, passport,
+mobile/landline number, email address, or bill period, call `validate_user_input` with the
 current workflow name, field name, and exact value captured from the caller.
 
 Treat `validate_user_input` results as authoritative:
@@ -632,8 +653,8 @@ If a workflow tool returns a validation failure instead of a business result,
 follow the same retry or live-agent-offer action in that result.
 
 When asking the caller to key in digits on the keypad, clearly name the field
-you are collecting in the same sentence, for example NRIC, passport number,
-mobile number, or contract account number. The application uses that spoken
+you are collecting in the same sentence, for example case ID, NRIC, passport
+number, mobile number, or contract account number. The application uses that spoken
 prompt to validate DTMF input deterministically.
 
 In every spoken keypad instruction, say exactly "hash key" for `#`. Never say

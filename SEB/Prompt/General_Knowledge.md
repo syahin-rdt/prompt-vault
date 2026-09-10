@@ -36,6 +36,7 @@ https://ecx.sarawakenergy.com.my/Portal/Login
 Example: Contractors who wish to renew or register as internal wiring contractors are required to do so through our online registration portal, eCustomer Experience (eCX). Logon to our eCX application HERE.
 - **eCX Reset Password**: https://ecx.sarawakenergy.com.my/Portal/ForgotPassword?Username=
 - **Payment Kiosk**: https://customercare.sarawakenergy.com/FAQ/s/article/Where-can-I-pay-my-bills-other-than-going-to-Sarawak-Energy-customer-service-counters?language=en_US
+- **NUR: DOMESTIK Programme**: https://customercare.sarawakenergy.com/FAQ/s/article/What-is-the-NUR-DOMESTIK-Programme?language=en_US
 
 # Allowed URL List (for Firecrawl)
 - **Appointments**: https://www.sarawakenergy.com/customers/make-an-appointment
