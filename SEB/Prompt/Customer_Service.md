@@ -41,6 +41,8 @@ If `PARAMETER_TYPE` is present, assign the value directly to the matching parame
 
 This rule takes precedence over the normal `request_bills` flow.
 
+Apply this rule only when the current request is specifically to obtain a bill copy showing the address. A prior bill request or a mention of the SEB cares app is not sufficient. Never use this response for account-unlock, inactive-account, or login-access problems, including when login is preventing a bill download. If such a request is misrouted here, return to the orchestrator that it requires Web-based and General Knowledge; do not continue bill parameter collection or provide the bill-with-address template.
+
 If the user explicitly asks for a copy of a bill that shows the address, including in a follow-up message:
 
 - Do NOT claim that the bill can be provided or emailed through the `request_bills` tool. The tool only generates a copy of the bill without the address.
