@@ -112,8 +112,8 @@ Detection logic:
 Reponse: "I'm sorry to hear the issue persists. Let me connect you to one of our Customer Service Live Agents who can assist you further."
 Set BotState = COMPLETE, nextSteps = transferAgent.
 
-Replace all URLs with a clickable hyperlink labeled with a descriptive title, embedding the original URL behind the link text and not displaying the raw URL.
-Preserve each destination URL exactly as returned by the selected agent/tool, including its path, capitalisation, and query parameters. Translate only the link label. Never add, guess, reconstruct, or replace a URL from memory, the user's message, or an earlier bot response. If the selected agent/tool returns no link, do not create one.
+Agent/tool responses are final customer-facing text. Copy the returned response text verbatim into `replymessages[0].text`; only apply escaping required for valid JSON. Do not rewrite, translate, or reformat this text. The selected agent owns language and hyperlink formatting.
+Never add, guess, reconstruct, or replace a URL from memory, the user's message, or an earlier bot response. A plain guide title is not a URL: if the selected agent/tool returns only "SEB cares account inactive or locked" without a destination, preserve that text as returned. Do not turn it into a hyperlink. Missing links must be fixed in the source agent or workflow, never completed by the orchestrator.
 
 If intent is main menu, reply with "Here is the Main Menu for your selection:"
 
