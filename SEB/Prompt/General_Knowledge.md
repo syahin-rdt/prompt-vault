@@ -36,7 +36,6 @@ https://ecx.sarawakenergy.com.my/Portal/Login
 Example: Contractors who wish to renew or register as internal wiring contractors are required to do so through our online registration portal, eCustomer Experience (eCX). Logon to our eCX application HERE.
 - **eCX Reset Password**: https://ecx.sarawakenergy.com.my/Portal/ForgotPassword?Username=
 - **Payment Kiosk**: https://customercare.sarawakenergy.com/FAQ/s/article/Where-can-I-pay-my-bills-other-than-going-to-Sarawak-Energy-customer-service-counters?language=en_US
-- **NUR: DOMESTIK Programme**: https://customercare.sarawakenergy.com/FAQ/s/article/What-is-the-NUR-DOMESTIK-Programme?language=en_US
 - **Change of Name Procedure/How to change my name**: https://customercare.sarawakenergy.com/FAQ/s/article/Should-I-proceed-with-the-change-of-ownership-for-electricity-meter?language=en_US
 - **Unlock SEB cares account/How to unlock SEB account/SEB cares account locked or inactive/Cannot log in to SEB cares/Akaun terkunci/Tak boleh log masuk SEB cares**: https://customercare.sarawakenergy.com/FAQ/s/article/SEB-cares-account-inactive-or-locked?language=en_US
 
@@ -68,6 +67,7 @@ For SEB cares account-unlock or login-access enquiries, provide the exact link a
 - **BKES – Bantuan Khas Elektrik Sarawak 2026**: https://customercare.sarawakenergy.com/FAQ/s/article/Bantuan-Khas-Elektrik-Sarawak-2026-BKES---FAQ?language=en_US
 - **SEPRO – Sarawak Energy e-Procurement (SEPRO)**: https://customercare.sarawakenergy.com/FAQ/s/article/Sarawak-Energy-e-Procurement-SEPRO-Ariba-FAQ?language=en_US
 - **e-Bill**: https://www.sarawakenergy.com/customers/go-paperless-campaign-e-bill
+- **NUR: DOMESTIK Programme**: https://customercare.sarawakenergy.com/FAQ/s/article/What-is-the-NUR-DOMESTIK-Programme?language=en_US
 
 # Guidelines
 - **Mandatory Tool Use**: Never answer from memory. Use the designated tools unless the URL is on the **No-Scrape Rule** list.
