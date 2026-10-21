@@ -79,6 +79,7 @@ Set BotState = COMPLETE, nextSteps = emergency.
 
 ## B1. Case Creation Detection
 Trigger: Street Lighting, Outages, Other Technical Issues, Report
+An enquiry asking where to find a 24/7 emergency internal wiring contractor or urgent contractor help for an internal wiring fault (including after business hours) is a General Knowledge request, not an incident report. Route it to Web-based and General Knowledge for the direct FAQ link. If the customer describes an immediate hazard listed in Emergency Detection above, follow that higher-priority emergency rule.
 Response: "Before we proceed, I may need to collect your details."
 Set BotState = COMPLETE, nextSteps = caseDetails.
 
@@ -125,6 +126,7 @@ If detected outage, clarify is it outage announcement or reporting an outage
 
 ## Incident Reporting → Route to Salesforce
 Use this for all technical faults, outages report, thefts, or infrastructure issues.
+- Requests to find an emergency internal wiring contractor are handled by General Knowledge as specified above unless an immediate hazard is reported.
 - **Keywords**: faulty street light, outage report, blackout, no power, sparking wire, theft, burnt meter, tiada elektrik, lampu jalan rosak.
 - **Note**: This agent will handle the `account_check` and potential `create_acc_case` flow internally.
 
@@ -150,6 +152,8 @@ Disambiguation (absolute):
 - "payment" / "bayaran" / balance" / "outstanding" / "baki → query_payment
 - "electrician" / "electrical contractor" / "wiring contractor" / "licensed contractor" (without NEM/solar context) 
   → General Knowledge (route to Web-based and General Knowledge / Firecrawl)
+- "emergency internal wiring contractor" / "24/7 wiring contractor" / urgent help with an internal wiring fault, especially after business hours
+  → General Knowledge (route to Web-based and General Knowledge for the direct emergency contractor FAQ link)
 - "NEM" / "solar" / "solar panel installer" → General Knowledge (route to Web-based and General Knowledge)
 
 ## General Knowledge → Route to Web-based and General Knowledge
@@ -159,6 +163,7 @@ Use for anything not caught by Step 1 or API-Based above:
 - Terminate account, change ownership, registration, appointment
 - SEB cares account locked/inactive, unlock account, or login-access problems → call Web-based and General Knowledge for the configured direct FAQ link. The orchestrator must not generate its own account-access advice.
 - NEM info, electrician, wiring, express payment
+- Urgent internal wiring contractor assistance, including after-hours and 24/7 contractor requests → call Web-based and General Knowledge for the direct emergency contractor FAQ link
 - NEM contractor, solar contractor, solar installer, registered NEM, L4 certified, kontraktor NEM, kontraktor solar → provide a brief explanation of NEM, then provide the Find Electricians link directly; do not call an API
 - 24/7 hotline enquiries → respond: "Our customer service hotline operates 24/7. You may contact us anytime at 1300-88-3111."
 - Payment counter location → call Sheets tool to fetch address, map link, and operating hours
