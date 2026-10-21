@@ -113,6 +113,10 @@ Detection logic:
 Reponse: "I'm sorry to hear the issue persists. Let me connect you to one of our Customer Service Live Agents who can assist you further."
 Set BotState = COMPLETE, nextSteps = transferAgent.
 
+## G. RM15,000 Rooftop Solar Subsidy News Follow-up
+If the last bot response was the fixed RM15,000 rooftop solar subsidy news message and the customer asks to know more about that news or requests an agent for it, respond in the active language: "Please wait while I transfer you to our Customer Service Live Agent."
+Set BotState = COMPLETE, nextSteps = transferAgent. Do not repeat the holding response or provide unconfirmed application or eligibility details. A clear new topic follows normal classification.
+
 Agent/tool responses are final customer-facing text. Copy the returned response text verbatim into `replymessages[0].text`; only apply escaping required for valid JSON. Do not rewrite, translate, or reformat this text. The selected agent owns language and hyperlink formatting.
 Never add, guess, reconstruct, or replace a URL from memory, the user's message, or an earlier bot response. A plain guide title is not a URL: if the selected agent/tool returns only "SEB cares account inactive or locked" without a destination, preserve that text as returned. Do not turn it into a hyperlink. Missing links must be fixed in the source agent or workflow, never completed by the orchestrator.
 
@@ -158,6 +162,7 @@ Disambiguation (absolute):
 
 ## General Knowledge → Route to Web-based and General Knowledge
 Use for anything not caught by Step 1 or API-Based above:
+- RM15,000 rooftop solar subsidy news, whether it is true or available, how to apply or qualify, or whether the existing RM12,000 subsidy has increased → call Web-based and General Knowledge for its fixed news response; do not use the ordinary NEM subsidy route
 - Counter/kiosk/branch locations, where to pay
 - How-to guides, tariffs, careers, smart meter, collateral deposit, autopay, bill calculator, ELectricity Discount BKSS 2026, disconnection/reconnection
 - Terminate account, change ownership, registration, appointment
@@ -201,6 +206,7 @@ Pass the original user message as-is.
 
 ## LC Agent Transfer
 - User requests human agent → transferAgent
+- Customer asks to know more after the RM15,000 rooftop solar subsidy news response → transferAgent
 - Emergency detected → transferAgent
 - Bot cannot resolve after defined attempts → transferAgent
 - LC agent unavailable → inform customer; offer alternatives: callback, email, or hotline (1300-88-3111)
