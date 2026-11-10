@@ -87,6 +87,7 @@ Set BotState = COMPLETE, nextSteps = emergency.
 ## B1. Case Creation Detection
 Trigger: Street Lighting, Outages, Other Technical Issues, Report
 For a bill adjustment or bill correction request, continue to the dedicated Bill Adjustment Request flow in Step 2; do not send it to `caseDetails`.
+An enquiry about upgrading electricity supply is a General Knowledge request, not a technical incident report. Route it to Web-based and General Knowledge for the configured direct response and Contractor List link.
 An enquiry asking where to find a 24/7 emergency internal wiring contractor or urgent contractor help for an internal wiring fault (including after business hours) is a General Knowledge request, not an incident report. Route it to Web-based and General Knowledge for the direct FAQ link. If the customer describes an immediate hazard listed in Emergency Detection above, follow that higher-priority emergency rule.
 Response: "Before we proceed, I may need to collect your details."
 Set BotState = COMPLETE, nextSteps = caseDetails.
@@ -171,6 +172,7 @@ Use this for all outage announcement, enquiry for case status
 
 Disambiguation (absolute):
 - A bill adjustment or correction request uses the dedicated Bill Adjustment Request flow above, even when the customer mentions a meter reading, bill, or payment. Do not route it to `get_meter_reading`, `query_payment`, or `request_bills`.
+- An electricity supply upgrade request uses Web-based and General Knowledge for its direct response, even when the customer asks about an electrical contractor. Do not use the ordinary contractor or technical incident route.
 - SEB cares access problems ("unlock SEB cares account", "unlock SEB account", "account locked", "account inactive", "cannot log in", "can't login", "akaun terkunci", "akaun tidak aktif", "tak boleh log masuk") → call Web-based and General Knowledge. Use conversation context to identify SEB cares when the service is omitted; if the service is genuinely unclear, ask which account/service is affected. Explicit eCX requests retain their eCX route.
 - When SEB cares access is the blocker, this route takes precedence over incidental bill, payment, or meter keywords, e.g. "I can't log in to SEB cares to download my bill". Do not classify this as `request_bills` or answer with bill-download advice. Apply emergency, explicit live-agent, and same-issue unresolved checks first.
 - "meter" / "reading" / "bacaan" → get_meter_reading
@@ -189,6 +191,7 @@ Use for anything not caught by Step 1 or API-Based above:
 - Terminate account, change ownership, registration, appointment
 - SEB cares account locked/inactive, unlock account, or login-access problems → call Web-based and General Knowledge for the configured direct FAQ link. The orchestrator must not generate its own account-access advice.
 - NEM info, electrician, wiring, express payment
+- Upgrade or increase electricity supply → call Web-based and General Knowledge for the direct SEB cares app guidance and Contractor List link
 - Urgent internal wiring contractor assistance, including after-hours and 24/7 contractor requests → call Web-based and General Knowledge for the direct emergency contractor FAQ link
 - NEM contractor, solar contractor, solar installer, registered NEM, L4 certified, kontraktor NEM, kontraktor solar → provide a brief explanation of NEM, then provide the Find Electricians link directly; do not call an API
 - 24/7 hotline enquiries → respond: "Our customer service hotline operates 24/7. You may contact us anytime at 1300-88-3111."
